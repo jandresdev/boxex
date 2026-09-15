@@ -19,7 +19,7 @@ export function AppHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-10 z-40 border-b border-white/60 bg-white/55 shadow-[0_8px_30px_rgba(1,22,137,0.1),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl backdrop-saturate-150">
+    <header className="sticky top-10 z-40 border-b border-brand-line bg-white shadow-[0_8px_30px_rgba(1,22,137,0.08)]">
       <div className="flex h-20 w-full items-center justify-between gap-6 px-4 sm:px-8 lg:px-12">
         <Link
           href="/"
@@ -29,8 +29,8 @@ export function AppHeader() {
           <Image
             src="/logo.png"
             alt="Boxex"
-            width={2048}
-            height={407}
+            width={736}
+            height={241}
             priority
             className="h-11 w-auto lg:h-12"
           />
@@ -95,8 +95,8 @@ export function AppHeader() {
               <Image
                 src="/logo.png"
                 alt="Boxex"
-                width={2048}
-                height={407}
+                width={736}
+                height={241}
                 className="h-11 w-auto"
               />
             </Link>

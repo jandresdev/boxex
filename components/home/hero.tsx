@@ -54,7 +54,7 @@ export function HeroSection() {
             <div className="mt-9 flex items-center gap-3">
               <div>
                 <strong className="block text-[30px] tracking-[-0.05em] text-white">
-                  35+
+                  40+
                 </strong>
                 <span className="text-[11px] leading-[1.4] text-white/70">
                   años conectando

@@ -36,7 +36,7 @@ export function AppFooter() {
     <footer className="bg-white pt-14 pb-6 lg:pt-[75px]">
       <div className="mx-auto grid max-w-6xl gap-10 border-b border-brand-line px-6 pb-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:pb-[60px]">
         <div>
-          <Image src="/logo.png" alt="Boxex" width={2048} height={407} className="h-[47px] w-auto" />
+          <Image src="/logo.png" alt="Boxex" width={736} height={241} className="h-[47px] w-auto" />
           <p className="mt-6 text-[13px] leading-[1.7] text-brand-blue/70">
             Personas, familias y negocios.
             <br />

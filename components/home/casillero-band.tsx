@@ -17,8 +17,8 @@ export function CasilleroBandSection() {
             <Image
               src="/logo.png"
               alt="Boxex"
-              width={2048}
-              height={407}
+              width={736}
+              height={241}
               className="mb-7 h-8 w-auto"
             />
             <p className="mb-4 text-[13px] text-brand-blue/70">
