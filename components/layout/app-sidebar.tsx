@@ -56,14 +56,16 @@ export function AppSidebar() {
                     asChild
                     isActive={isActive}
                     tooltip={item.label}
-                    className="h-11 justify-center gap-3 rounded-xl text-[15px] transition-[transform,box-shadow,background-color] duration-200 group-data-[collapsible=icon]:justify-center hover:-translate-y-0.5 hover:bg-white/60 hover:shadow-[0_10px_20px_rgba(1,22,137,0.12)] data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-white/70 data-[active=true]:shadow-[0_10px_20px_rgba(1,22,137,0.14)]"
+                    className="h-12 justify-center gap-3 rounded-xl border border-white/40 bg-white/25 text-[15px] backdrop-blur-md transition-[transform,box-shadow,background-color,border-color] duration-200 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-transparent group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:backdrop-blur-none hover:-translate-y-0.5 hover:border-white/70 hover:bg-white/60 hover:shadow-[0_10px_20px_rgba(1,22,137,0.12)] data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-white/70 data-[active=true]:shadow-[0_10px_20px_rgba(1,22,137,0.14)]"
                   >
                     <Link
                       href={item.href}
                       aria-current={isActive ? "page" : undefined}
                       className="justify-center"
                     >
-                      <Icon className="hidden group-data-[collapsible=icon]:inline-block" />
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-white/50 bg-white/40 text-brand-blue shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-sm group-data-[collapsible=icon]:size-[18px] group-data-[collapsible=icon]:border-transparent group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:shadow-none group-data-[collapsible=icon]:backdrop-blur-none">
+                        <Icon className="size-[18px]" />
+                      </span>
                       <span className="group-data-[collapsible=icon]:hidden">
                         {item.label}
                       </span>

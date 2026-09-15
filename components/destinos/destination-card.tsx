@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { MapPin, ArrowRight } from "lucide-react"
 import { TiltCard } from "@/components/home/tilt-card"
-import { CountryGlobe } from "./country-globe"
-import { countryCoordinates } from "@/lib/country-coordinates"
+import { CountryMap3D } from "./country-map-3d"
 
 export function DestinationCard({
   country,
@@ -13,8 +12,6 @@ export function DestinationCard({
   modes: string[]
   href: string
 }) {
-  const coords = countryCoordinates[country]
-
   return (
     <TiltCard restDeg={0} className="h-full">
       <Link
@@ -43,18 +40,14 @@ export function DestinationCard({
           </div>
         </div>
 
-        {coords && (
-          <div className="relative hidden shrink-0 items-center justify-center sm:flex">
-            <div className="absolute inset-0 -m-3 rounded-full bg-brand-blue/15 blur-xl" />
-            <CountryGlobe
-              country={country}
-              lat={coords.lat}
-              lng={coords.lng}
-              className="relative size-24 rounded-full border border-white/50 bg-gradient-to-br from-brand-blue/10 to-brand-soft-gold/20 shadow-[inset_0_0_18px_rgba(1,22,137,0.25)] lg:size-28"
-            />
-            <ArrowRight className="absolute -bottom-2 -right-2 hidden size-[18px] rounded-full bg-white p-[3px] text-brand-blue shadow-md transition-transform group-hover:translate-x-1 sm:block" />
-          </div>
-        )}
+        <div className="relative hidden shrink-0 items-center justify-center sm:flex">
+          <div className="absolute inset-0 -m-3 rounded-2xl bg-brand-blue/15 blur-xl" />
+          <CountryMap3D
+            country={country}
+            className="relative size-24 rounded-2xl border border-white/50 bg-gradient-to-br from-brand-blue/10 to-brand-soft-gold/20 shadow-[inset_0_0_18px_rgba(1,22,137,0.25)] lg:size-28"
+          />
+          <ArrowRight className="absolute -bottom-2 -right-2 hidden size-[18px] rounded-full bg-white p-[3px] text-brand-blue shadow-md transition-transform group-hover:translate-x-1 sm:block" />
+        </div>
       </Link>
     </TiltCard>
   )

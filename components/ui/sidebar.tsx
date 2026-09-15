@@ -22,6 +22,30 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
+/**
+ * The decorative "liquid glass" layers shared by both the desktop rail
+ * and the mobile drawer: a blue-dominant glow, a slowly drifting glossy
+ * highlight streak, and a bright edge rim.
+ */
+function SidebarGlassLayers() {
+  return (
+    <>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(140%_75%_at_-10%_-10%,rgba(1,22,137,0.35),transparent_55%),radial-gradient(120%_65%_at_110%_105%,rgba(1,22,137,0.28),transparent_55%),radial-gradient(60%_35%_at_100%_0%,rgba(214,179,106,0.16),transparent_60%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="glass-shimmer pointer-events-none absolute -inset-x-10 -top-1/3 h-2/3 -z-10 bg-gradient-to-b from-white/80 via-brand-blue/10 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-px bg-gradient-to-b from-white/80 via-brand-gold/40 to-white/80"
+      />
+    </>
+  )
+}
+
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
@@ -170,7 +194,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-gradient-to-b from-brand-blue/25 via-brand-blue/8 to-brand-blue/30 text-sidebar-foreground backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_50px_-8px_rgba(1,22,137,0.35)] w-(--sidebar-width) p-0 [&>button]:hidden"
+          className="overflow-hidden bg-gradient-to-b from-brand-blue/25 via-brand-blue/8 to-brand-blue/30 text-sidebar-foreground backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_50px_-8px_rgba(1,22,137,0.35),inset_-1px_0_0_rgba(255,255,255,0.6),inset_0_1px_0_rgba(255,255,255,0.8)] w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -182,7 +206,8 @@ function Sidebar({
             <SheetTitle>Menú de navegación</SheetTitle>
             <SheetDescription>Navegación principal de Boxex</SheetDescription>
           </SheetHeader>
-          <div className="flex h-full w-full flex-col">{children}</div>
+          <SidebarGlassLayers />
+          <div className="relative flex h-full w-full flex-col">{children}</div>
         </SheetContent>
       </Sheet>
     )
@@ -227,21 +252,7 @@ function Sidebar({
           data-slot="sidebar-inner"
           className="relative flex h-full w-full flex-col overflow-hidden bg-gradient-to-b from-brand-blue/25 via-brand-blue/8 to-brand-blue/30 backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_50px_-8px_rgba(1,22,137,0.35),inset_-1px_0_0_rgba(255,255,255,0.6),inset_0_1px_0_rgba(255,255,255,0.8)] group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border"
         >
-          {/* Blue-dominant glow so the glass reads as "liquid glass blue" */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(140%_75%_at_-10%_-10%,rgba(1,22,137,0.35),transparent_55%),radial-gradient(120%_65%_at_110%_105%,rgba(1,22,137,0.28),transparent_55%),radial-gradient(60%_35%_at_100%_0%,rgba(214,179,106,0.16),transparent_60%)]"
-          />
-          {/* Glossy diagonal highlight streak — the "liquid" in liquid glass, slowly drifting */}
-          <div
-            aria-hidden="true"
-            className="glass-shimmer pointer-events-none absolute -inset-x-10 -top-1/3 h-2/3 -z-10 bg-gradient-to-b from-white/80 via-brand-blue/10 to-transparent"
-          />
-          {/* Right edge: a bright glass rim to read as a distinct pane */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-px bg-gradient-to-b from-white/80 via-brand-gold/40 to-white/80"
-          />
+          <SidebarGlassLayers />
           {children}
         </div>
       </div>
