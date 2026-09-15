@@ -29,7 +29,7 @@ export default function ComoFuncionaPage() {
           y despacho.
         </p>
         <Button asChild variant="outline" className="cursor-pointer">
-          <Link href="/cotizar?servicio=casillero-virtual">
+          <Link href="/servicios/casillero-virtual">
             Ver cómo usar mi casillero
             <ArrowRight />
           </Link>

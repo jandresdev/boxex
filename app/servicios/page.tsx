@@ -26,7 +26,7 @@ export default function ServiciosPage() {
             return (
               <Link
                 key={service.slug}
-                href={`/cotizar?servicio=${service.slug}`}
+                href={`/servicios/${service.slug}`}
                 className="group flex h-full cursor-pointer flex-col items-start border-t-2 border-brand-blue pt-7 pb-6"
               >
                 <div className="mb-7 flex size-12 items-center justify-center rounded-xl bg-brand-soft-gold text-brand-blue">

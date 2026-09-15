@@ -37,7 +37,7 @@ export function DestinosFilter() {
         {entries.map(([country, m]) => (
           <Link
             key={country}
-            href={`/cotizar?destino=${slugify(country)}`}
+            href={`/destinos/${slugify(country)}`}
             className="group relative block cursor-pointer border-b border-brand-line py-6 pr-8 transition-colors hover:bg-brand-pale"
           >
             <span className="flex items-center gap-2.5 text-[17px] text-brand-blue">
