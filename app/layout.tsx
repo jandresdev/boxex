@@ -4,6 +4,7 @@ import { AppTopbar } from "@/components/layout/app-topbar";
 import { AppHeader } from "@/components/layout/app-header";
 import { AppFooter } from "@/components/layout/app-footer";
 import { WhatsappFloat } from "@/components/layout/whatsapp-float";
+import { CopyGuard } from "@/components/layout/copy-guard";
 
 export const metadata: Metadata = {
   title: "Boxex",
@@ -23,6 +24,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <AppFooter />
         <WhatsappFloat />
+        <CopyGuard />
       </body>
     </html>
   );
