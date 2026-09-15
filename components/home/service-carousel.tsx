@@ -53,7 +53,7 @@ export function ServiceCarousel() {
   useEffect(() => {
     const reducedNow = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (reducedNow || paused) return
-    const id = window.setInterval(() => go(1), 4500)
+    const id = window.setInterval(() => go(1), 3200)
     return () => window.clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, paused])
@@ -86,7 +86,7 @@ export function ServiceCarousel() {
   // so the carousel genuinely fills the section edge-to-edge at any
   // size instead of sitting in a fixed small box, and adjacent cards
   // never overlap (spacing always exceeds card width).
-  const cardWidth = Math.min(340, Math.max(240, width * 0.27))
+  const cardWidth = Math.min(380, Math.max(260, width * 0.3))
   const spacingX = cardWidth * 1.05
   const depthStep = cardWidth * 0.62
 
@@ -108,7 +108,7 @@ export function ServiceCarousel() {
       <div
         ref={containerRef}
         tabIndex={0}
-        className="relative flex h-[340px] w-full cursor-grab touch-pan-y items-center justify-center outline-none [perspective:1800px] active:cursor-grabbing sm:h-[380px]"
+        className="relative flex h-[370px] w-full cursor-grab touch-pan-y items-center justify-center outline-none [perspective:1800px] active:cursor-grabbing sm:h-[410px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -154,16 +154,16 @@ export function ServiceCarousel() {
                   }
                 }}
                 tabIndex={isCenter ? 0 : -1}
-                className={`group flex h-full cursor-pointer select-none flex-col items-start rounded-2xl border border-white/60 bg-white/85 p-6 backdrop-blur-xl transition-shadow ${
+                className={`group flex h-full cursor-pointer select-none flex-col items-start rounded-2xl border border-white/60 bg-white/85 p-7 backdrop-blur-xl transition-shadow ${
                   isCenter
                     ? "shadow-[0_30px_60px_-10px_rgba(1,22,137,0.28)] hover:shadow-[0_35px_70px_-10px_rgba(1,22,137,0.35)]"
                     : "shadow-[0_15px_30px_rgba(1,22,137,0.12)]"
                 }`}
               >
-                <div className="mb-5 flex size-11 items-center justify-center rounded-xl bg-brand-soft-gold text-brand-blue">
-                  <Icon className="size-5" />
+                <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-brand-soft-gold text-brand-blue">
+                  <Icon className="size-[22px]" />
                 </div>
-                <h3 className="mb-2 min-h-[54px] text-lg font-semibold text-brand-blue">
+                <h3 className="mb-2 min-h-[58px] text-xl font-semibold text-brand-blue">
                   {service.name}
                 </h3>
                 <p className="mb-5 text-sm leading-[1.6] text-brand-blue/70">
