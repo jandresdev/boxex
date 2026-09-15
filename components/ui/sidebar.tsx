@@ -26,7 +26,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
-const SIDEBAR_WIDTH_ICON = "3rem"
+const SIDEBAR_WIDTH_ICON = "3.75rem"
 
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
@@ -170,7 +170,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-white/60 text-sidebar-foreground backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_40px_-10px_rgba(1,22,137,0.25)] w-(--sidebar-width) p-0 [&>button]:hidden"
+          className="bg-gradient-to-b from-brand-blue/25 via-brand-blue/8 to-brand-blue/30 text-sidebar-foreground backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_50px_-8px_rgba(1,22,137,0.35)] w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -225,17 +225,17 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="relative flex h-full w-full flex-col overflow-hidden bg-white/55 backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_40px_-10px_rgba(1,22,137,0.25),inset_-1px_0_0_rgba(255,255,255,0.6)] group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border"
+          className="relative flex h-full w-full flex-col overflow-hidden bg-gradient-to-b from-brand-blue/25 via-brand-blue/8 to-brand-blue/30 backdrop-blur-[36px] backdrop-saturate-[180%] shadow-[8px_0_50px_-8px_rgba(1,22,137,0.35),inset_-1px_0_0_rgba(255,255,255,0.6),inset_0_1px_0_rgba(255,255,255,0.8)] group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border"
         >
-          {/* Brand-tinted glow so the glass has color to catch */}
+          {/* Blue-dominant glow so the glass reads as "liquid glass blue" */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(130%_70%_at_-10%_-10%,rgba(214,179,106,0.3),transparent_55%),radial-gradient(130%_70%_at_110%_110%,rgba(1,22,137,0.22),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(140%_75%_at_-10%_-10%,rgba(1,22,137,0.35),transparent_55%),radial-gradient(120%_65%_at_110%_105%,rgba(1,22,137,0.28),transparent_55%),radial-gradient(60%_35%_at_100%_0%,rgba(214,179,106,0.16),transparent_60%)]"
           />
-          {/* Glossy diagonal highlight streak — the "liquid" in liquid glass */}
+          {/* Glossy diagonal highlight streak — the "liquid" in liquid glass, slowly drifting */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-x-10 -top-1/3 h-2/3 -z-10 rotate-[-8deg] bg-gradient-to-b from-white/70 via-white/10 to-transparent"
+            className="glass-shimmer pointer-events-none absolute -inset-x-10 -top-1/3 h-2/3 -z-10 bg-gradient-to-b from-white/80 via-brand-blue/10 to-transparent"
           />
           {/* Right edge: a bright glass rim to read as a distinct pane */}
           <div
@@ -355,14 +355,17 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="sidebar-menu-item"
       data-sidebar="menu-item"
-      className={cn("group/menu-item relative", className)}
+      className={cn(
+        "group/menu-item relative flex group-data-[collapsible=icon]:justify-center",
+        className
+      )}
       {...props}
     />
   )
 }
 
 const sidebarMenuButtonVariants =
-  "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0"
+  "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-9! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0"
 
 function SidebarMenuButton({
   asChild = false,

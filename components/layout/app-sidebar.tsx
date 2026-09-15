@@ -56,15 +56,17 @@ export function AppSidebar() {
                     asChild
                     isActive={isActive}
                     tooltip={item.label}
-                    className="h-11 justify-center gap-3 rounded-xl text-[15px] group-data-[collapsible=icon]:justify-center data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-white/60 data-[active=true]:shadow-sm hover:bg-white/50"
+                    className="h-11 justify-center gap-3 rounded-xl text-[15px] transition-[transform,box-shadow,background-color] duration-200 group-data-[collapsible=icon]:justify-center hover:-translate-y-0.5 hover:bg-white/60 hover:shadow-[0_10px_20px_rgba(1,22,137,0.12)] data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-white/70 data-[active=true]:shadow-[0_10px_20px_rgba(1,22,137,0.14)]"
                   >
                     <Link
                       href={item.href}
                       aria-current={isActive ? "page" : undefined}
                       className="justify-center"
                     >
-                      <Icon />
-                      <span>{item.label}</span>
+                      <Icon className="hidden group-data-[collapsible=icon]:inline-block" />
+                      <span className="group-data-[collapsible=icon]:hidden">
+                        {item.label}
+                      </span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -80,11 +82,13 @@ export function AppSidebar() {
             <SidebarMenuButton
               asChild
               tooltip={quoteCta.label}
-              className="bg-brand-gold text-brand-blue font-semibold hover:bg-brand-gold/90"
+              className="bg-brand-gold text-brand-blue font-semibold shadow-[0_10px_25px_rgba(214,179,106,0.4)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-gold/90"
             >
               <Link href={quoteCta.href}>
-                <ArrowRight />
-                <span>{quoteCta.label}</span>
+                <ArrowRight className="hidden group-data-[collapsible=icon]:inline-block" />
+                <span className="group-data-[collapsible=icon]:hidden">
+                  {quoteCta.label}
+                </span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
