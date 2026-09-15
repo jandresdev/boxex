@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <SidebarProvider defaultOpen>
+        <SidebarProvider defaultOpen={false}>
           <AppSidebar />
           <SidebarInset>
             <AppTopbar />

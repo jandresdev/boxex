@@ -63,7 +63,7 @@ lib/
 ## 6. Comportamiento del Sidebar
 
 **Escritorio (≥1024px):**
-- Visible siempre, **expandido por defecto** (ícono + etiqueta de texto).
+- Visible siempre, **contraído por defecto** (rail de solo íconos, ~56px); el usuario lo expande manualmente con el control de colapsar y el estado queda persistido por cookie.
 - Logo de Boxex como header del sidebar (visible también en estado colapsado, como isotipo).
 - Enlaces del nav como `SidebarMenu` vertical, usando `nav-items.ts`.
 - Botón "Cotizar envío" (estilo `gold`, mismo componente de botón que el resto del sitio) anclado como footer del sidebar, siempre visible sin necesidad de scroll.

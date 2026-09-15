@@ -21,7 +21,7 @@
 - Ubicación del proyecto: raíz del repo (`D:\AA-Valley-Group\Boxex\boxex-web`).
 - **No modificar ni borrar:** `build.py`, `dist/`, `routes.json`, `README.md` existente, `.claude/`, `.openai/`, `skills-lock.json`.
 - Móvil: el sidebar se abre como drawer deslizable (no bottom-nav, no sidebar fijo colapsado).
-- Sidebar en escritorio: expandido por defecto, logo arriba, CTA anclado abajo, estado persistido en cookie.
+- Sidebar en escritorio: contraído por defecto (rail de solo íconos), logo arriba, CTA anclado abajo, estado persistido en cookie.
 - Supabase: cliente base creado (`lib/supabase/client.ts` + `.env.local.example`), sin conectarlo a ninguna funcionalidad todavía.
 - Verificación de cada tarea: `npm run build` debe compilar sin errores de TypeScript; no hay suite de tests automatizados en este proyecto todavía, así que las tareas de UI se verifican con el Browser tool (navegación, resize, lectura de accesibilidad) según se detalla en cada tarea.
 
