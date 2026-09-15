@@ -1,0 +1,134 @@
+{
+  "": [
+    "Envíos de Estados Unidos a Latinoamérica",
+    "Envía con Boxex a 11 destinos de Latinoamérica. Consulta servicios, casillero virtual, recogida en casa, oficinas y seguimiento."
+  ],
+  "servicios": [
+    "Servicios de envíos y logística",
+    "Conoce las soluciones de Boxex para paquetes, compras online y exportaciones."
+  ],
+  "servicios/envios-internacionales": [
+    "Envíos internacionales",
+    "Envía paquetes, cajas y mercancías desde Estados Unidos a los destinos de Boxex. Elige la modalidad disponible para tu país con asesoría del equipo."
+  ],
+  "servicios/recogida-en-casa": [
+    "Recogida en casa",
+    "Solicita la recogida de tus paquetes en tu casa o ubicación. El equipo confirma la disponibilidad, los detalles del paquete y las condiciones antes de coordinarla."
+  ],
+  "servicios/casillero-virtual": [
+    "Casillero virtual",
+    "Recibe tus compras online en la dirección de Boxex en Estados Unidos y coordina su envío. Crea tu cuenta para obtener tu identificación de casillero."
+  ],
+  "servicios/exportaciones": [
+    "Exportaciones",
+    "Recibe acompañamiento del equipo de comercio exterior para enviar mercancías desde Colombia hacia destinos internacionales."
+  ],
+  "destinos": [
+    "Destinos y modalidades desde Estados Unidos",
+    "Consulta los 11 destinos de Boxex y las modalidades disponibles por país."
+  ],
+  "destinos/colombia": [
+    "Envíos de Estados Unidos a Colombia",
+    "Consulta envíos de Estados Unidos a Colombia con Boxex. Modalidades: Aéreo, Marítimo, Marítimo express."
+  ],
+  "destinos/venezuela": [
+    "Envíos de Estados Unidos a Venezuela",
+    "Consulta envíos de Estados Unidos a Venezuela con Boxex. Modalidades: Aéreo, Marítimo."
+  ],
+  "destinos/ecuador": [
+    "Envíos de Estados Unidos a Ecuador",
+    "Consulta envíos de Estados Unidos a Ecuador con Boxex. Modalidades: Aéreo."
+  ],
+  "destinos/peru": [
+    "Envíos de Estados Unidos a Perú",
+    "Consulta envíos de Estados Unidos a Perú con Boxex. Modalidades: Aéreo."
+  ],
+  "destinos/mexico": [
+    "Envíos de Estados Unidos a México",
+    "Consulta envíos de Estados Unidos a México con Boxex. Modalidades: Terrestre."
+  ],
+  "destinos/guatemala": [
+    "Envíos de Estados Unidos a Guatemala",
+    "Consulta envíos de Estados Unidos a Guatemala con Boxex. Modalidades: Aéreo, Marítimo, Marítimo express."
+  ],
+  "destinos/el-salvador": [
+    "Envíos de Estados Unidos a El Salvador",
+    "Consulta envíos de Estados Unidos a El Salvador con Boxex. Modalidades: Aéreo, Marítimo."
+  ],
+  "destinos/nicaragua": [
+    "Envíos de Estados Unidos a Nicaragua",
+    "Consulta envíos de Estados Unidos a Nicaragua con Boxex. Modalidades: Aéreo, Marítimo."
+  ],
+  "destinos/honduras": [
+    "Envíos de Estados Unidos a Honduras",
+    "Consulta envíos de Estados Unidos a Honduras con Boxex. Modalidades: Aéreo, Marítimo."
+  ],
+  "destinos/republica-dominicana": [
+    "Envíos de Estados Unidos a República Dominicana",
+    "Consulta envíos de Estados Unidos a República Dominicana con Boxex. Modalidades: Aéreo, Marítimo."
+  ],
+  "destinos/haiti": [
+    "Envíos de Estados Unidos a Haití",
+    "Consulta envíos de Estados Unidos a Haití con Boxex. Modalidades: Marítimo."
+  ],
+  "como-funciona": [
+    "Cómo enviar con Boxex",
+    "Prepara, cotiza y sigue tu envío con Boxex. Conoce el recorrido del paquete y del casillero."
+  ],
+  "cotizar": [
+    "Solicita una cotización de envío",
+    "Prepara origen, destino, contenido, peso y medidas para consultar una cotización con Boxex."
+  ],
+  "rastreo": [
+    "Rastrea tu envío",
+    "Accede al seguimiento oficial de Boxex con tu número de guía."
+  ],
+  "oficinas": [
+    "Oficinas de Boxex en Estados Unidos y Colombia",
+    "Encuentra direcciones y teléfonos de las oficinas Boxex en Miami, New York, New Jersey, Boston, Texas y Colombia."
+  ],
+  "ayuda": [
+    "Centro de ayuda y preguntas frecuentes",
+    "Resuelve dudas sobre casillero, destinos, costos, rastreo, recogidas y reclamaciones."
+  ],
+  "contacto": [
+    "Contacto y atención al cliente",
+    "Encuentra los canales de Boxex para consultar un envío o recibir atención."
+  ],
+  "pagos": [
+    "Pagos de envíos Boxex",
+    "Continúa al sistema oficial de pagos de Boxex con tu número de orden."
+  ],
+  "reclamaciones": [
+    "Quejas y reclamos",
+    "Accede al formulario oficial de quejas y reclamos de Boxex."
+  ],
+  "condiciones": [
+    "Condiciones y restricciones de envío",
+    "Consulta las condiciones oficiales de Boxex y confirma los requisitos de tu mercancía antes de enviar."
+  ],
+  "legal": [
+    "Información legal de Boxex",
+    "Accede a las políticas, condiciones y documentos oficiales de Boxex."
+  ],
+  "aliados": [
+    "Red de aliados y agentes Boxex",
+    "Conoce el canal oficial para solicitar vinculación a la red de agentes Boxex."
+  ],
+  "nosotros": [
+    "Sobre Boxex",
+    "Boxex conecta personas, familias y empresas mediante soluciones de courier y envíos internacionales."
+  ],
+  "guias": [
+    "Guías para comprar y enviar",
+    "Aprende a preparar tu envío y a usar el casillero de Boxex."
+  ],
+  "guias/preparar-envio": [
+    "Cómo preparar tu primer envío",
+    "Una guía antes de entregar tu paquete."
+  ],
+  "guias/casillero-usa": [
+    "Cómo usar tu casillero en Estados Unidos",
+    "Del registro a la prealerta de tu compra."
+  ]
+}
