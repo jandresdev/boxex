@@ -1,13 +1,21 @@
+import { HeroSection } from "@/components/home/hero";
+import { ServiceCardsSection } from "@/components/home/service-cards";
+import { JourneySection } from "@/components/home/journey";
+import { DestinationGridSection } from "@/components/home/destination-grid";
+import { CasilleroBandSection } from "@/components/home/casillero-band";
+import { FaqSection } from "@/components/home/faq-section";
+import { FinalCtaSection } from "@/components/home/final-cta";
+
 export default function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-semibold text-brand-blue">
-        Boxex — layout base listo
-      </h1>
-      <p className="mt-2 text-sm text-neutral-600">
-        Topbar fijo y sidebar de navegación implementados. El Hero llega en
-        la próxima iteración.
-      </p>
-    </div>
+    <>
+      <HeroSection />
+      <ServiceCardsSection />
+      <JourneySection />
+      <DestinationGridSection />
+      <CasilleroBandSection />
+      <FaqSection />
+      <FinalCtaSection />
+    </>
   );
 }

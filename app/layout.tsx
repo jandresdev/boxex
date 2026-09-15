@@ -3,6 +3,8 @@ import "./globals.css";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { AppTopbar } from "@/components/layout/app-topbar";
+import { AppFooter } from "@/components/layout/app-footer";
+import { WhatsappFloat } from "@/components/layout/whatsapp-float";
 
 export const metadata: Metadata = {
   title: "Boxex",
@@ -22,8 +24,10 @@ export default function RootLayout({
           <SidebarInset>
             <AppTopbar />
             <main id="main">{children}</main>
+            <AppFooter />
           </SidebarInset>
         </SidebarProvider>
+        <WhatsappFloat />
       </body>
     </html>
   );
