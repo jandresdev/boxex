@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/layout/app-sidebar";
 import { AppTopbar } from "@/components/layout/app-topbar";
+import { AppHeader } from "@/components/layout/app-header";
 import { AppFooter } from "@/components/layout/app-footer";
 import { WhatsappFloat } from "@/components/layout/whatsapp-float";
 
@@ -19,14 +18,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <SidebarProvider defaultOpen={false}>
-          <AppSidebar />
-          <SidebarInset className="lg:pt-10">
-            <AppTopbar />
-            <main id="main">{children}</main>
-            <AppFooter />
-          </SidebarInset>
-        </SidebarProvider>
+        <AppTopbar />
+        <AppHeader />
+        <main id="main">{children}</main>
+        <AppFooter />
         <WhatsappFloat />
       </body>
     </html>
