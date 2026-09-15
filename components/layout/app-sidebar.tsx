@@ -21,8 +21,8 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
-        <div className="flex items-center justify-between gap-2 px-2 py-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+      <SidebarHeader className="pb-2 pt-6">
+        <div className="flex items-center justify-between gap-2 px-3 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <Link
             href="/"
             aria-label="Boxex, inicio"
@@ -34,7 +34,7 @@ export function AppSidebar() {
               width={2048}
               height={407}
               priority
-              className="h-7 w-auto shrink-0"
+              className="h-10 w-auto shrink-0"
             />
           </Link>
           <SidebarTrigger
@@ -44,9 +44,9 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="justify-center">
         <nav aria-label="Navegación principal">
-          <SidebarMenu>
+          <SidebarMenu className="gap-2">
             {navItems.map((item) => {
               const isActive = pathname === item.href
               const Icon = item.icon
@@ -56,11 +56,12 @@ export function AppSidebar() {
                     asChild
                     isActive={isActive}
                     tooltip={item.label}
-                    className="data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-brand-blue/5"
+                    className="h-11 justify-center gap-3 rounded-xl text-[15px] group-data-[collapsible=icon]:justify-center data-[active=true]:border-l-2 data-[active=true]:border-brand-gold data-[active=true]:bg-white/60 data-[active=true]:shadow-sm hover:bg-white/50"
                   >
                     <Link
                       href={item.href}
                       aria-current={isActive ? "page" : undefined}
+                      className="justify-center"
                     >
                       <Icon />
                       <span>{item.label}</span>

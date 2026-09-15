@@ -2,13 +2,14 @@ import Image from "next/image"
 import { ShoppingBag, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
+import { TiltCard } from "./tilt-card"
 
 export function CasilleroBandSection() {
   return (
     <section className="bg-brand-soft-gold py-14 lg:py-20">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <div className="max-w-[450px] rotate-[-3deg] rounded-xl border border-brand-line bg-white p-9 shadow-[0_20px_55px_rgba(1,22,137,0.065)] transition-transform duration-300 hover:rotate-0">
+          <TiltCard className="max-w-[450px] rounded-xl border border-white/60 bg-white/80 p-9 shadow-[0_25px_60px_rgba(1,22,137,0.12)] backdrop-blur-xl">
             <div className="mb-6 flex items-center gap-2.5 border-b border-dashed border-brand-line pb-6 text-xs text-brand-blue">
               <ShoppingBag className="size-5" />
               Tu dirección en Estados Unidos
@@ -31,7 +32,7 @@ export function CasilleroBandSection() {
             <span className="block text-[11px] leading-[1.5] text-brand-blue/60">
               Confirma tu IDBOX en tu cuenta antes de comprar.
             </span>
-          </div>
+          </TiltCard>
         </Reveal>
         <Reveal delay={120} className="flex flex-col gap-3">
           <span className="text-[13px] font-medium text-brand-blue">
