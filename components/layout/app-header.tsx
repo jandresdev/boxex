@@ -20,7 +20,7 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-10 z-40 border-b border-white/60 bg-white/55 shadow-[0_8px_30px_rgba(1,22,137,0.1),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl backdrop-saturate-150">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6">
+      <div className="flex h-20 w-full items-center justify-between gap-6 px-4 sm:px-8 lg:px-12">
         <Link
           href="/"
           aria-label="Boxex, inicio"
@@ -32,13 +32,13 @@ export function AppHeader() {
             width={2048}
             height={407}
             priority
-            className="h-9 w-auto"
+            className="h-11 w-auto lg:h-12"
           />
         </Link>
 
         <nav
           aria-label="Navegación principal"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden flex-1 items-center justify-center gap-1 lg:flex"
         >
           {navItems.map((item) => {
             const isActive = pathname === item.href
@@ -61,7 +61,7 @@ export function AppHeader() {
 
         <Link
           href={quoteCta.href}
-          className="ml-auto hidden shrink-0 items-center rounded-full bg-brand-gold px-5 py-2.5 text-sm font-semibold text-brand-blue shadow-[0_10px_25px_rgba(214,179,106,0.35)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-gold/90 lg:inline-flex"
+          className="hidden shrink-0 items-center rounded-full bg-brand-gold px-5 py-2.5 text-sm font-semibold text-brand-blue shadow-[0_10px_25px_rgba(214,179,106,0.35)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-gold/90 lg:inline-flex"
         >
           {quoteCta.label}
         </Link>
@@ -69,7 +69,7 @@ export function AppHeader() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="ml-auto flex size-10 items-center justify-center rounded-lg text-brand-blue hover:bg-brand-pale lg:hidden"
+          className="flex size-10 shrink-0 items-center justify-center rounded-lg text-brand-blue hover:bg-brand-pale lg:hidden"
           aria-label="Abrir menú de navegación"
         >
           <Menu className="size-5" />
@@ -97,7 +97,7 @@ export function AppHeader() {
                 alt="Boxex"
                 width={2048}
                 height={407}
-                className="h-9 w-auto"
+                className="h-11 w-auto"
               />
             </Link>
             <nav
