@@ -119,7 +119,7 @@ export const quickActions = [
     subtitle: "Rastrea con tu número de guía",
   },
   {
-    href: "/servicios/recogida-en-casa",
+    href: "/cotizar?servicio=recogida-en-casa",
     icon: HomeIcon,
     title: "Recógelo en mi casa",
     subtitle: "Consulta disponibilidad de recogida",

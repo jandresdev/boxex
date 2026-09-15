@@ -1,41 +1,43 @@
-"use client"
-
-import { useState } from "react"
-import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { quickActions } from "@/lib/home-data"
-
-const HeroScene = dynamic(
-  () => import("./hero-scene").then((m) => m.HeroScene),
-  { ssr: false }
-)
+import { HeroCarousel } from "./hero-carousel"
 
 export function HeroSection() {
-  const [paused, setPaused] = useState(false)
-
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-10 pb-14 lg:pt-14 lg:pb-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:min-h-[600px] lg:grid-cols-[1.04fr_1fr] lg:gap-4">
-          <div className="flex flex-col">
-            <span className="mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-brand-blue">
+      <section className="relative isolate min-h-[78vh] overflow-hidden lg:min-h-[86vh]">
+        <HeroCarousel />
+
+        {/* Scrim so the copy stays readable over any slide */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#04102e]/85 via-[#04102e]/45 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#04102e]/70 via-transparent to-transparent"
+        />
+
+        <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 py-16 lg:min-h-[86vh]">
+          <div className="flex max-w-xl flex-col">
+            <span className="mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-white/85">
               <span className="size-[7px] rounded-full bg-brand-gold" />
               Desde USA. Hasta los tuyos.
             </span>
-            <h1 className="mb-6 text-[46px] font-bold leading-[1.02] tracking-[-0.065em] text-brand-blue sm:text-[64px] lg:text-[72px]">
+            <h1 className="mb-6 text-[46px] font-bold leading-[1.02] tracking-[-0.065em] text-white sm:text-[64px] lg:text-[72px]">
               Lo que envías,
               <br />
-              acerca.
+              <span className="text-brand-gold">acerca.</span>
             </h1>
-            <p className="mb-7 max-w-[480px] text-[17px] leading-[1.65] text-brand-blue/80">
+            <p className="mb-7 max-w-[480px] text-[17px] leading-[1.65] text-white/80">
               Tu familia. Tus compras. Tu próximo negocio.
               <br />
               Conectamos Estados Unidos con 11 destinos de Latinoamérica.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
+              <Button asChild className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90">
                 <Link href="/cotizar">
                   Cotizar mi envío
                   <ArrowRight />
@@ -44,28 +46,28 @@ export function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                className="cursor-pointer border-brand-line text-brand-blue hover:bg-brand-pale"
+                className="cursor-pointer border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
               >
                 <a href="https://clientes.boxexpress.com/">Crear casillero</a>
               </Button>
             </div>
             <div className="mt-9 flex items-center gap-3">
               <div>
-                <strong className="block text-[30px] tracking-[-0.05em] text-brand-blue">
+                <strong className="block text-[30px] tracking-[-0.05em] text-white">
                   35+
                 </strong>
-                <span className="text-[11px] leading-[1.4] text-brand-blue/60">
+                <span className="text-[11px] leading-[1.4] text-white/70">
                   años conectando
                   <br />
                   lo que importa
                 </span>
               </div>
-              <i className="mx-4 h-8 w-px bg-brand-line" aria-hidden="true" />
+              <i className="mx-4 h-8 w-px bg-white/25" aria-hidden="true" />
               <div>
-                <strong className="block text-[30px] tracking-[-0.05em] text-brand-blue">
+                <strong className="block text-[30px] tracking-[-0.05em] text-white">
                   11
                 </strong>
-                <span className="text-[11px] leading-[1.4] text-brand-blue/60">
+                <span className="text-[11px] leading-[1.4] text-white/70">
                   destinos
                   <br />
                   en Latinoamérica
@@ -73,32 +75,11 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-
-          <div className="relative h-[340px] sm:h-[420px] lg:h-[540px]">
-            {/* Soft gold glow behind the globe, matching the original hero-art */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-[12%_0_10%] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(ellipse, rgba(214,179,106,.25), rgba(214,179,106,0) 70%)",
-              }}
-            />
-            <HeroScene paused={paused} />
-            <button
-              type="button"
-              onClick={() => setPaused((p) => !p)}
-              aria-pressed={paused}
-              className="absolute bottom-2 right-2 z-10 cursor-pointer rounded-full border border-brand-line bg-white/90 px-3 py-2 text-[11px] font-medium text-brand-blue backdrop-blur transition-colors hover:bg-white"
-            >
-              {paused ? "Activar animación" : "Pausar animación"}
-            </button>
-          </div>
         </div>
 
         <a
           href="#enviar"
-          className="mx-auto mt-8 flex w-fit items-center gap-3 px-6 text-[11px] text-brand-blue/60 transition-colors hover:text-brand-blue lg:absolute lg:bottom-6 lg:left-16 lg:mt-0"
+          className="absolute bottom-6 left-1/2 z-10 flex w-fit -translate-x-1/2 items-center gap-3 text-[11px] text-white/70 transition-colors hover:text-white lg:left-16 lg:translate-x-0"
         >
           Descubre tu próximo envío <span className="text-base">↓</span>
         </a>
@@ -106,7 +87,7 @@ export function HeroSection() {
 
       <section
         id="enviar"
-        className="mx-auto grid max-w-6xl grid-cols-1 border-y border-brand-line px-6 sm:grid-cols-3 sm:px-0"
+        className="mx-auto grid max-w-6xl grid-cols-1 border-b border-brand-line px-6 sm:grid-cols-3 sm:px-0"
       >
         {quickActions.map((action, i) => {
           const Icon = action.icon

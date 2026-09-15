@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/home/hero";
+import { GlobeBandSection } from "@/components/home/globe-band";
 import { ServiceCardsSection } from "@/components/home/service-cards";
 import { JourneySection } from "@/components/home/journey";
 import { DestinationGridSection } from "@/components/home/destination-grid";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <GlobeBandSection />
       <ServiceCardsSection />
       <JourneySection />
       <DestinationGridSection />
