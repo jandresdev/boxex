@@ -137,7 +137,7 @@ Expected: código de salida 0.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add components.json lib/utils.ts components/ui hooks 2>/dev/null
+git add components.json lib/utils.ts components/ui hooks package.json package-lock.json 2>/dev/null
 git commit -m "Add shadcn/ui sidebar primitives, set mobile breakpoint to 1024px"
 ```
 
