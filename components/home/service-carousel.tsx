@@ -28,7 +28,8 @@ function circularOffset(i: number, current: number) {
 export function ServiceCarousel() {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
-  const dragRef = useRef({ startX: 0, dragging: false, moved: false })
+  const [dragging, setDragging] = useState(false)
+  const dragRef = useRef({ startX: 0, moved: false })
   const containerRef = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState(1100)
 
@@ -55,32 +56,33 @@ export function ServiceCarousel() {
     if (reducedNow || paused) return
     const id = window.setInterval(() => go(1), 3200)
     return () => window.clearInterval(id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, paused])
 
   function onPointerDown(e: React.PointerEvent<HTMLDivElement>) {
-    dragRef.current = { startX: e.clientX, dragging: true, moved: false }
+    dragRef.current = { startX: e.clientX, moved: false }
     e.currentTarget.setPointerCapture(e.pointerId)
+    setDragging(true)
     setPaused(true)
   }
   function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
-    if (!dragRef.current.dragging) return
+    if (!dragging) return
     if (Math.abs(e.clientX - dragRef.current.startX) > 6) {
       dragRef.current.moved = true
     }
   }
   function onPointerUp(e: React.PointerEvent<HTMLDivElement>) {
-    if (!dragRef.current.dragging) return
+    if (!dragging) return
     const dx = e.clientX - dragRef.current.startX
-    dragRef.current.dragging = false
+    setDragging(false)
     if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1)
     setPaused(false)
   }
 
-  const [reduced, setReduced] = useState(false)
-  useEffect(() => {
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-  }, [])
+  const [reduced] = useState(() =>
+    typeof window === "undefined"
+      ? false
+      : window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
 
   // Card width and spacing both scale off the measured container width,
   // so the carousel genuinely fills the section edge-to-edge at any
@@ -130,7 +132,7 @@ export function ServiceCarousel() {
             opacity: abs > 1 ? 0.3 : 1,
             width: cardWidth,
             zIndex: 10 - abs,
-            pointerEvents: dragRef.current.dragging ? "none" : "auto",
+            pointerEvents: dragging ? "none" : "auto",
           }
 
           return (

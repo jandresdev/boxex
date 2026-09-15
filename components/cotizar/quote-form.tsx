@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useSearchParams } from "next/navigation"
+import { useState } from "react"
+import { useSearchParams, type ReadonlyURLSearchParams } from "next/navigation"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { countries } from "@/lib/home-data"
@@ -21,31 +21,38 @@ const serviceSlugMap: Record<string, string> = {
   exportaciones: "Exportación desde Colombia",
 }
 
+function serviceFromParams(params: ReadonlyURLSearchParams) {
+  const servicio = params.get("servicio")
+  return servicio && serviceSlugMap[servicio]
+    ? serviceSlugMap[servicio]
+    : serviceOptions[0]
+}
+
+function destinationFromParams(params: ReadonlyURLSearchParams) {
+  const destino = params.get("destino")
+  const match = Object.keys(countries).find(
+    (c) => c.toLowerCase().replace(/[^a-z]/g, "") === destino?.replace(/-/g, "")
+  )
+  return match ?? Object.keys(countries)[0]
+}
+
 export function QuoteForm() {
   const params = useSearchParams()
-  const [service, setService] = useState(serviceOptions[0])
-  const [origin, setOrigin] = useState("Estados Unidos")
-  const [destination, setDestination] = useState(Object.keys(countries)[0])
+  const [service, setService] = useState(() => serviceFromParams(params))
+  const [origin, setOrigin] = useState(() =>
+    serviceFromParams(params) === "Exportación desde Colombia"
+      ? "Colombia"
+      : "Estados Unidos"
+  )
+  const [destination, setDestination] = useState(() =>
+    destinationFromParams(params)
+  )
   const [city, setCity] = useState("")
   const [toCity, setToCity] = useState("")
   const [content, setContent] = useState("")
   const [weight, setWeight] = useState("")
   const [dimensions, setDimensions] = useState("")
   const [result, setResult] = useState<string | null>(null)
-
-  useEffect(() => {
-    const servicio = params.get("servicio")
-    if (servicio && serviceSlugMap[servicio]) {
-      const mapped = serviceSlugMap[servicio]
-      setService(mapped)
-      if (mapped === "Exportación desde Colombia") setOrigin("Colombia")
-    }
-    const destino = params.get("destino")
-    const match = Object.keys(countries).find(
-      (c) => c.toLowerCase().replace(/[^a-z]/g, "") === destino?.replace(/-/g, "")
-    )
-    if (match) setDestination(match)
-  }, [params])
 
   function handleServiceChange(value: string) {
     setService(value)

@@ -29,11 +29,11 @@ function HeroVideoSlide({
   active: boolean
 }) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [reduced, setReduced] = useState(false)
-
-  useEffect(() => {
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-  }, [])
+  const [reduced] = useState(() =>
+    typeof window === "undefined"
+      ? false
+      : window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
 
   useEffect(() => {
     const el = videoRef.current

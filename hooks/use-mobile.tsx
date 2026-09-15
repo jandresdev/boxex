@@ -5,8 +5,10 @@ import * as React from "react"
 const MOBILE_BREAKPOINT = 1024
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(
-    undefined
+  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(() =>
+    typeof window === "undefined"
+      ? undefined
+      : window.innerWidth < MOBILE_BREAKPOINT
   )
 
   React.useEffect(() => {
@@ -15,7 +17,6 @@ export function useIsMobile() {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
     mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     return () => mql.removeEventListener("change", onChange)
   }, [])
 
