@@ -1,12 +1,16 @@
 import { countryGeoData } from "@/lib/country-geo-data"
 
-function polygonToPath(polygon: number[][][]) {
-  return polygon
-    .map(
-      (ring) =>
-        ring
-          .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(3)},${y.toFixed(3)}`)
-          .join(" ") + " Z"
+function polygonsToPath(polygons: number[][][][]) {
+  return polygons
+    .map((rings) =>
+      rings
+        .map(
+          (ring) =>
+            ring
+              .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(3)},${y.toFixed(3)}`)
+              .join(" ") + " Z"
+        )
+        .join(" ")
     )
     .join(" ")
 }
@@ -31,7 +35,7 @@ export function CountryMap({
   const geo = countryGeoData[country]
   if (!geo) return null
 
-  const d = polygonToPath(geo.polygons)
+  const d = polygonsToPath(geo.polygons)
   const [pinX, pinY] = geo.pin
   const gradId = `map-grad-${country.replace(/[^a-zA-Z0-9]/g, "")}`
   const glowId = `map-glow-${country.replace(/[^a-zA-Z0-9]/g, "")}`
