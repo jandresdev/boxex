@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import dynamic from "next/dynamic"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -18,41 +17,25 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="relative isolate min-h-[92vh] overflow-hidden bg-[#04102e] text-white lg:min-h-screen">
-        {/* Full-bleed rotating globe background */}
-        <HeroScene paused={paused} />
-
-        {/* Vignette so text and characters stay readable over the globe */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#04102e] via-[#04102e]/70 to-transparent"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#04102e] via-transparent to-[#04102e]/40"
-        />
-
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 pt-16 pb-0 lg:grid-cols-2 lg:items-center lg:pt-24">
-          <div className="flex flex-col gap-6">
-            <span className="inline-flex w-fit items-center gap-2 text-xs font-medium text-white/80">
-              <span className="size-2 rounded-full bg-brand-gold" />
+      <section className="relative overflow-hidden bg-white pt-10 pb-14 lg:pt-14 lg:pb-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:min-h-[600px] lg:grid-cols-[1.04fr_1fr] lg:gap-4">
+          <div className="flex flex-col">
+            <span className="mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-brand-blue">
+              <span className="size-[7px] rounded-full bg-brand-gold" />
               Desde USA. Hasta los tuyos.
             </span>
-            <h1 className="text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl">
+            <h1 className="mb-6 text-[46px] font-bold leading-[1.02] tracking-[-0.065em] text-brand-blue sm:text-[64px] lg:text-[72px]">
               Lo que envías,
               <br />
-              <span className="text-brand-gold">acerca.</span>
+              acerca.
             </h1>
-            <p className="max-w-md text-white/70">
+            <p className="mb-7 max-w-[480px] text-[17px] leading-[1.65] text-brand-blue/80">
               Tu familia. Tus compras. Tu próximo negocio.
               <br />
               Conectamos Estados Unidos con 11 destinos de Latinoamérica.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90"
-              >
+              <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
                 <Link href="/cotizar">
                   Cotizar mi envío
                   <ArrowRight />
@@ -61,27 +44,28 @@ export function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                className="cursor-pointer border-white/30 bg-white/5 text-white hover:bg-white/15 hover:text-white"
+                className="cursor-pointer border-brand-line text-brand-blue hover:bg-brand-pale"
               >
                 <a href="https://clientes.boxexpress.com/">Crear casillero</a>
               </Button>
             </div>
-            <div className="mt-4 flex gap-8">
+            <div className="mt-9 flex items-center gap-3">
               <div>
-                <strong className="block text-2xl font-bold text-white">
+                <strong className="block text-[30px] tracking-[-0.05em] text-brand-blue">
                   35+
                 </strong>
-                <span className="text-xs text-white/60">
+                <span className="text-[11px] leading-[1.4] text-brand-blue/60">
                   años conectando
                   <br />
                   lo que importa
                 </span>
               </div>
+              <i className="mx-4 h-8 w-px bg-brand-line" aria-hidden="true" />
               <div>
-                <strong className="block text-2xl font-bold text-white">
+                <strong className="block text-[30px] tracking-[-0.05em] text-brand-blue">
                   11
                 </strong>
-                <span className="text-xs text-white/60">
+                <span className="text-[11px] leading-[1.4] text-brand-blue/60">
                   destinos
                   <br />
                   en Latinoamérica
@@ -90,56 +74,63 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Empty column on large screens: the globe (full-bleed background)
-              shows through here, characters sit on top via absolute layer below */}
-          <div className="hidden lg:block" aria-hidden="true" />
+          <div className="relative h-[340px] sm:h-[420px] lg:h-[540px]">
+            {/* Soft gold glow behind the globe, matching the original hero-art */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-[12%_0_10%] rounded-full"
+              style={{
+                background:
+                  "radial-gradient(ellipse, rgba(214,179,106,.25), rgba(214,179,106,0) 70%)",
+              }}
+            />
+            <HeroScene paused={paused} />
+            <button
+              type="button"
+              onClick={() => setPaused((p) => !p)}
+              aria-pressed={paused}
+              className="absolute bottom-2 right-2 z-10 cursor-pointer rounded-full border border-brand-line bg-white/90 px-3 py-2 text-[11px] font-medium text-brand-blue backdrop-blur transition-colors hover:bg-white"
+            >
+              {paused ? "Activar animación" : "Pausar animación"}
+            </button>
+          </div>
         </div>
-
-        {/* Characters float large over the globe, anchored to the bottom */}
-        <div className="pointer-events-none relative mx-auto flex max-w-6xl justify-center px-6 lg:absolute lg:inset-x-0 lg:bottom-0 lg:justify-end lg:pr-10">
-          <Image
-            src="/assets/boxex-characters-hero.png"
-            alt="Personajes Boxex frente a un globo terráqueo digital, representando la conexión entre Estados Unidos y Latinoamérica"
-            width={900}
-            height={900}
-            priority
-            className="h-auto w-[85%] max-w-xl drop-shadow-2xl sm:w-[70%] lg:w-[42vw] lg:max-w-2xl"
-          />
-        </div>
-
-        <button
-          type="button"
-          onClick={() => setPaused((p) => !p)}
-          aria-pressed={paused}
-          className="absolute bottom-4 right-4 z-10 cursor-pointer rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur transition-colors hover:bg-white/20"
-        >
-          {paused ? "Activar animación" : "Pausar animación"}
-        </button>
 
         <a
           href="#enviar"
-          className="relative z-10 mx-auto mb-8 flex w-fit items-center gap-2 px-6 pt-10 text-sm text-white/60 transition-colors hover:text-white lg:absolute lg:bottom-6 lg:left-1/2 lg:mb-0 lg:-translate-x-1/2 lg:pt-0"
+          className="mx-auto mt-8 flex w-fit items-center gap-3 px-6 text-[11px] text-brand-blue/60 transition-colors hover:text-brand-blue lg:absolute lg:bottom-6 lg:left-16 lg:mt-0"
         >
-          Descubre tu próximo envío <span>↓</span>
+          Descubre tu próximo envío <span className="text-base">↓</span>
         </a>
       </section>
 
-      <section id="enviar" className="mx-auto grid max-w-6xl gap-4 px-6 py-14 sm:grid-cols-3">
-        {quickActions.map((action) => {
+      <section
+        id="enviar"
+        className="mx-auto grid max-w-6xl grid-cols-1 border-y border-brand-line px-6 sm:grid-cols-3 sm:px-0"
+      >
+        {quickActions.map((action, i) => {
           const Icon = action.icon
           return (
             <Link
               key={action.href}
               href={action.href}
-              className="group flex cursor-pointer items-center gap-3 rounded-xl border border-neutral-200 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-blue hover:shadow-md"
+              className={[
+                "group flex min-w-0 cursor-pointer items-center gap-4 py-6 transition-colors hover:bg-brand-pale",
+                i > 0 ? "sm:border-l sm:border-brand-line sm:pl-6" : "",
+                i === 0 ? "sm:pr-6" : "sm:px-6",
+                "border-t border-brand-line first:border-t-0 sm:border-t-0",
+              ].join(" ")}
             >
               <Icon className="size-5 shrink-0 text-brand-blue" />
-              <span>
-                <strong className="block text-sm text-brand-blue">
+              <span className="min-w-0">
+                <strong className="block text-[15px] text-brand-blue">
                   {action.title}
                 </strong>
-                <small className="text-neutral-500">{action.subtitle}</small>
+                <small className="block text-xs text-brand-blue/60">
+                  {action.subtitle}
+                </small>
               </span>
+              <ArrowRight className="ml-auto size-[18px] shrink-0 text-brand-blue transition-transform group-hover:translate-x-1" />
             </Link>
           )
         })}

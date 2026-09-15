@@ -5,20 +5,20 @@ import { Reveal } from "./reveal"
 
 export function FinalCtaSection() {
   return (
-    <section className="border-t border-neutral-200 bg-neutral-50">
-      <Reveal className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16 sm:flex-row sm:items-center sm:justify-between">
+    <section className="bg-brand-blue text-white">
+      <Reveal className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between lg:py-[65px]">
         <div>
-          <h2 className="text-2xl font-bold text-brand-blue sm:text-3xl">
+          <h2 className="mb-3 text-[32px] font-bold text-white lg:text-[42px]">
             Lo que importa, hazlo llegar.
           </h2>
-          <p className="mt-1 max-w-md text-neutral-600">
+          <p className="max-w-[590px] text-[15px] text-white/80">
             Cuéntanos qué quieres enviar. Te ayudamos a elegir la opción para
             tu destino.
           </p>
         </div>
         <Button
           asChild
-          className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90"
+          className="shrink-0 cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90"
         >
           <Link href="/cotizar">
             Preparar mi envío

@@ -5,49 +5,57 @@ import { Reveal } from "./reveal"
 
 export function CasilleroBandSection() {
   return (
-    <section className="bg-brand-blue py-20 text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+    <section className="bg-brand-soft-gold py-14 lg:py-20">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <div className="rounded-2xl bg-white p-6 text-brand-blue shadow-xl transition-transform duration-300 hover:-translate-y-1">
-            <div className="mb-4 flex items-center gap-2 text-sm font-semibold">
+          <div className="max-w-[450px] rotate-[-3deg] rounded-xl border border-brand-line bg-white p-9 shadow-[0_20px_55px_rgba(1,22,137,0.065)] transition-transform duration-300 hover:rotate-0">
+            <div className="mb-6 flex items-center gap-2.5 border-b border-dashed border-brand-line pb-6 text-xs text-brand-blue">
               <ShoppingBag className="size-5" />
               Tu dirección en Estados Unidos
             </div>
-            <Image src="/logo.png" alt="Boxex" width={2048} height={407} className="h-8 w-auto" />
-            <p className="mt-4 text-sm text-neutral-600">Tu IDBOX + nombre y apellido</p>
-            <strong className="block text-lg">
+            <Image
+              src="/logo.png"
+              alt="Boxex"
+              width={2048}
+              height={407}
+              className="mb-7 h-8 w-auto"
+            />
+            <p className="mb-4 text-[13px] text-brand-blue/70">
+              Tu IDBOX + nombre y apellido
+            </p>
+            <strong className="mb-5 block text-[25px] leading-[1.4] tracking-[-0.03em] text-brand-blue">
               2025 NW 102 Ave.
               <br />
               Suite 109, Doral FL 33172
             </strong>
-            <span className="mt-3 block text-xs text-neutral-500">
+            <span className="block text-[11px] leading-[1.5] text-brand-blue/60">
               Confirma tu IDBOX en tu cuenta antes de comprar.
             </span>
           </div>
         </Reveal>
         <Reveal delay={120} className="flex flex-col gap-3">
-          <span className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
+          <span className="text-[13px] font-medium text-brand-blue">
             Casillero virtual
           </span>
-          <h2 className="text-3xl font-bold sm:text-4xl">
+          <h2 className="text-[35px] font-bold tracking-[-0.048em] text-brand-blue lg:text-[44px]">
             Tus tiendas favoritas.
             <br />
             Tu dirección en USA.
           </h2>
-          <p className="max-w-md text-white/80">
+          <p className="max-w-md text-[15px] text-brand-blue/70">
             Crea tu casillero, recibe tu IDBOX y úsalo para identificar tus
             compras. Te acompañamos en el siguiente paso.
           </p>
           <Button
             asChild
-            className="mt-2 w-fit cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90"
+            className="mt-2 w-fit cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90"
           >
             <a href="https://clientes.boxexpress.com/">
               Crear mi casillero gratis
               <ArrowRight />
             </a>
           </Button>
-          <small className="text-white/60">
+          <small className="mt-1 text-[11px] text-brand-blue/60">
             Registro sin costo. El envío se cotiza por separado.
           </small>
         </Reveal>

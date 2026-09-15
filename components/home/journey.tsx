@@ -52,51 +52,58 @@ export function JourneySection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-neutral-50 py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2">
-        <div className="flex flex-col gap-4">
-          <span className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
+    <section ref={sectionRef} className="bg-brand-blue text-white">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-[60px] lg:grid-cols-2 lg:gap-[110px] lg:py-[90px]">
+        <div className="flex flex-col lg:sticky lg:top-[135px] lg:self-start">
+          <span className="mb-5 block text-[13px] font-medium text-brand-gold">
             Así de cerca
           </span>
-          <h2 className="text-3xl font-bold text-brand-blue sm:text-4xl">
+          <h2 className="mb-3 text-[40px] font-bold tracking-[-0.048em] text-white lg:text-[52px]">
             De tus manos.
             <br />
             A su puerta.
           </h2>
-          <p className="max-w-md text-neutral-600">
+          <p className="mb-2 max-w-[390px] text-[16px] text-white/85">
             Un recorrido claro, desde la primera pregunta hasta la entrega.
           </p>
-          <div className="relative mt-4" aria-hidden="true">
-            <svg viewBox="0 0 480 250" className="w-full max-w-sm text-brand-blue">
+          <div className="relative my-3 max-w-[450px]" aria-hidden="true">
+            <svg viewBox="0 0 480 250" className="w-full">
               <path
                 d="M40 195C130 195 70 55 185 55S270 200 365 160 410 60 445 60"
-                className="fill-none stroke-brand-blue/15"
-                strokeWidth={3}
+                className="fill-none stroke-white/20"
+                strokeWidth={2}
+                strokeDasharray="5 7"
               />
               <path
                 ref={pathRef}
                 d="M40 195C130 195 70 55 185 55S270 200 365 160 410 60 445 60"
                 className="fill-none stroke-brand-gold"
-                strokeWidth={3}
-                strokeLinecap="round"
+                strokeWidth={2}
               />
-              <circle cx={40} cy={195} r={8} className="fill-brand-blue" />
-              <circle cx={445} cy={60} r={8} className="fill-brand-blue" />
+              <circle cx={40} cy={195} r={6} className="fill-brand-gold" />
+              <circle cx={445} cy={60} r={6} className="fill-brand-gold" />
             </svg>
           </div>
-          <Button asChild variant="outline" className="mt-2 w-fit">
+          <Button
+            asChild
+            variant="outline"
+            className="mt-4 w-fit cursor-pointer border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+          >
             <Link href="/como-funciona">Ver cómo funciona</Link>
           </Button>
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="pt-4 lg:pt-[60px]">
           {journeySteps.map((step, i) => (
-            <article key={step.title} className="flex gap-4">
-              <span className="text-2xl font-bold text-brand-gold">
-                0{i + 1}
-              </span>
+            <article
+              key={step.title}
+              className="flex gap-6 border-t border-white/20 py-6 first:border-t-0 lg:py-6"
+            >
+              <span className="pt-1 text-sm text-brand-gold">0{i + 1}</span>
               <div>
-                <h3 className="font-semibold text-brand-blue">{step.title}</h3>
-                <p className="text-sm text-neutral-600">{step.text}</p>
+                <h3 className="mb-2 text-[22px] font-semibold text-white lg:text-[26px]">
+                  {step.title}
+                </h3>
+                <p className="text-[15px] text-white/80">{step.text}</p>
               </div>
             </article>
           ))}

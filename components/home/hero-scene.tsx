@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react"
 import * as THREE from "three"
 
 /**
- * Full-bleed rotating globe for the Hero background: a dotted "digital
- * earth" sphere with glowing gold arcs representing shipping routes,
- * slowly rotating behind the character illustration. Decorative only —
- * no tracking data is represented by this scene.
+ * Rotating "digital earth" globe for the Hero — brand colors only
+ * (blue #011689 / gold #d6b36a), on a transparent background so the
+ * light hero section shows through. No route lines, no tracking data:
+ * purely a slowly spinning globe silhouette built from a dotted grid.
  */
 export function HeroScene({ paused }: { paused: boolean }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -29,52 +29,55 @@ export function HeroScene({ paused }: { paused: boolean }) {
       return
     }
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75))
     renderer.setClearColor(0x000000, 0)
     renderer.outputColorSpace = THREE.SRGBColorSpace
     host.appendChild(renderer.domElement)
     renderer.domElement.setAttribute("aria-hidden", "true")
 
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100)
-    camera.position.set(0, 0.3, 7.2)
+    const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100)
+    camera.position.set(0, 0.2, 7)
     camera.lookAt(0, 0, 0)
 
-    scene.add(new THREE.AmbientLight(0x2a3a7a, 1.4))
-    const gold = new THREE.DirectionalLight(0xd6b36a, 2.2)
-    gold.position.set(4, 3, 5)
-    scene.add(gold)
-    const rim = new THREE.DirectionalLight(0x3d5cff, 1.4)
-    rim.position.set(-5, -2, -3)
-    scene.add(rim)
+    scene.add(new THREE.AmbientLight(0xffffff, 1.6))
+    const goldLight = new THREE.DirectionalLight(0xd6b36a, 1.6)
+    goldLight.position.set(4, 4, 5)
+    scene.add(goldLight)
+    const blueLight = new THREE.DirectionalLight(0x011689, 1.1)
+    blueLight.position.set(-4, -2, 3)
+    scene.add(blueLight)
 
     const globe = new THREE.Group()
     scene.add(globe)
 
-    // Solid inner sphere: gives the dotted grid something to read against
+    const radius = 2.2
+
+    // Soft, light core so the far side of the dot cloud doesn't show
+    // through — keeps the globe reading as a solid sphere, not a
+    // scattered dark blob.
     const core = new THREE.Mesh(
-      new THREE.SphereGeometry(2.15, 48, 48),
+      new THREE.SphereGeometry(radius - 0.02, 48, 48),
       new THREE.MeshStandardMaterial({
-        color: 0x04102e,
-        roughness: 0.85,
-        metalness: 0.1,
+        color: 0xf4f6fc,
+        roughness: 0.95,
+        metalness: 0,
         transparent: true,
-        opacity: 0.92,
+        opacity: 0.94,
       })
     )
     globe.add(core)
 
-    // Dotted "digital earth" surface via a Fibonacci sphere distribution
-    const DOT_COUNT = 900
+    // Dotted "continents" grid via a Fibonacci sphere distribution
+    const DOT_COUNT = 1100
     const dotPositions = new Float32Array(DOT_COUNT * 3)
-    const dotRadius = 2.18
     for (let i = 0; i < DOT_COUNT; i++) {
       const t = i / (DOT_COUNT - 1)
       const phi = Math.acos(1 - 2 * t)
       const theta = Math.PI * (1 + Math.sqrt(5)) * i
-      dotPositions[i * 3] = dotRadius * Math.sin(phi) * Math.cos(theta)
-      dotPositions[i * 3 + 1] = dotRadius * Math.cos(phi)
-      dotPositions[i * 3 + 2] = dotRadius * Math.sin(phi) * Math.sin(theta)
+      dotPositions[i * 3] = radius * Math.sin(phi) * Math.cos(theta)
+      dotPositions[i * 3 + 1] = radius * Math.cos(phi)
+      dotPositions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta)
     }
     const dotGeometry = new THREE.BufferGeometry()
     dotGeometry.setAttribute(
@@ -84,79 +87,36 @@ export function HeroScene({ paused }: { paused: boolean }) {
     const dots = new THREE.Points(
       dotGeometry,
       new THREE.PointsMaterial({
-        color: 0x8fb4ff,
-        size: 0.028,
+        color: 0x011689,
+        size: 0.032,
         transparent: true,
-        opacity: 0.85,
+        opacity: 0.55,
         sizeAttenuation: true,
       })
     )
     globe.add(dots)
 
-    // Latitude/longitude wire grid for the "globe" read
+    // Faint latitude/longitude grid for the "globe" read
     const wire = new THREE.Mesh(
-      new THREE.SphereGeometry(2.2, 20, 14),
+      new THREE.SphereGeometry(radius + 0.01, 24, 16),
       new THREE.MeshBasicMaterial({
-        color: 0x3d5cff,
+        color: 0x011689,
         wireframe: true,
         transparent: true,
-        opacity: 0.12,
+        opacity: 0.1,
       })
     )
     globe.add(wire)
 
-    // Outer atmosphere glow
-    const atmosphere = new THREE.Mesh(
-      new THREE.SphereGeometry(2.42, 48, 48),
-      new THREE.MeshBasicMaterial({
-        color: 0xd6b36a,
-        transparent: true,
-        opacity: 0.06,
-        side: THREE.BackSide,
-      })
+    // Thin gold equator ring — the only accent line, brand gold
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(radius + 0.03, 0.012, 8, 96),
+      new THREE.MeshBasicMaterial({ color: 0xd6b36a, transparent: true, opacity: 0.5 })
     )
-    globe.add(atmosphere)
+    ring.rotation.x = Math.PI / 2 + 0.35
+    globe.add(ring)
 
-    // Gold shipping-route arcs between points on the sphere
-    function arcBetween(a: THREE.Vector3, b: THREE.Vector3) {
-      const mid = a.clone().add(b).multiplyScalar(0.5)
-      mid.normalize().multiplyScalar(dotRadius + 1.1)
-      const curve = new THREE.QuadraticBezierCurve3(a, mid, b)
-      const tube = new THREE.TubeGeometry(curve, 48, 0.012, 8, false)
-      return new THREE.Mesh(
-        tube,
-        new THREE.MeshBasicMaterial({
-          color: 0xd6b36a,
-          transparent: true,
-          opacity: 0.85,
-        })
-      )
-    }
-
-    function pointOnSphere(latDeg: number, lonDeg: number) {
-      const lat = (latDeg * Math.PI) / 180
-      const lon = (lonDeg * Math.PI) / 180
-      return new THREE.Vector3(
-        dotRadius * Math.cos(lat) * Math.cos(lon),
-        dotRadius * Math.sin(lat),
-        dotRadius * Math.cos(lat) * Math.sin(lon)
-      )
-    }
-
-    // Miami (USA) as the hub, arcing out to Boxex's destination countries
-    const hub = pointOnSphere(25.8, -80.2)
-    const destinations: [number, number][] = [
-      [4.6, -74.1], // Colombia
-      [10.5, -66.9], // Venezuela
-      [19.4, -99.1], // México
-      [-0.2, -78.5], // Ecuador
-      [18.5, -69.9], // República Dominicana
-    ]
-    const arcs = destinations.map((d) => arcBetween(hub, pointOnSphere(d[0], d[1])))
-    arcs.forEach((arc) => globe.add(arc))
-
-    globe.rotation.x = 0.25
-    globe.rotation.y = -0.4
+    globe.rotation.x = 0.15
 
     const pointer = { x: 0, y: 0 }
     const onPointerMove = (e: PointerEvent) => {
@@ -189,12 +149,8 @@ export function HeroScene({ paused }: { paused: boolean }) {
     function loop() {
       frame = 0
       if (pausedRef.current || !visible || document.hidden) return
-      globe.rotation.y += 0.0018
-      globe.rotation.x = 0.25 + pointer.y * 0.08
-      arcs.forEach((arc, i) => {
-        const mat = arc.material as THREE.MeshBasicMaterial
-        mat.opacity = 0.45 + 0.4 * Math.abs(Math.sin(Date.now() * 0.0006 + i))
-      })
+      globe.rotation.y += 0.0022
+      globe.rotation.x = 0.15 + pointer.y * 0.05
       render()
       frame = requestAnimationFrame(loop)
     }

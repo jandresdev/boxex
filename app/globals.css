@@ -32,9 +32,13 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Boxex brand tokens */
+  /* Boxex brand tokens — matched 1:1 to the original site's palette
+     (dist/assets/styles.css :root) */
   --brand-blue: #011689;
   --brand-gold: #d6b36a;
+  --brand-line: rgba(1, 22, 137, 0.14);
+  --brand-pale: rgba(1, 22, 137, 0.035);
+  --brand-soft-gold: rgba(214, 179, 106, 0.13);
 }
 
 .dark {
@@ -103,14 +107,16 @@
   /* Boxex brand tokens */
   --color-brand-blue: var(--brand-blue);
   --color-brand-gold: var(--brand-gold);
+  --color-brand-line: var(--brand-line);
+  --color-brand-pale: var(--brand-pale);
+  --color-brand-soft-gold: var(--brand-soft-gold);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-  }
-}
+/* Boxex uses brand colors only — no automatic OS dark theme. The .dark
+   class block above stays defined but unused/inert (nothing in this
+   app ever applies a "dark" class), rather than deleted, in case a
+   future explicit toggle is wanted; the site never switches to it on
+   its own. */
 
 * {
   border-color: var(--border);
