@@ -20,13 +20,13 @@ export function AppSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar collapsible="icon">
-      <SidebarHeader className="pb-2 pt-6">
+    <Sidebar collapsible="icon" className="lg:top-10 lg:h-[calc(100svh-2.5rem)]">
+      <SidebarHeader className="pb-2 pt-6 lg:border-b lg:border-white/15 lg:bg-brand-blue">
         <div className="flex items-center justify-between gap-2 px-3 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <Link
             href="/"
             aria-label="Boxex, inicio"
-            className="flex min-w-0 items-center group-data-[collapsible=icon]:hidden"
+            className="flex min-w-0 items-center rounded-lg group-data-[collapsible=icon]:hidden lg:bg-white/90 lg:px-2.5 lg:py-1.5 lg:shadow-sm"
           >
             <Image
               src="/logo.png"
@@ -38,7 +38,7 @@ export function AppSidebar() {
             />
           </Link>
           <SidebarTrigger
-            className="text-brand-blue hover:bg-brand-blue/10"
+            className="text-brand-blue hover:bg-brand-blue/10 lg:text-white lg:hover:bg-white/15 lg:hover:text-white"
             aria-label="Contraer o expandir menú"
           />
         </div>

@@ -9,7 +9,7 @@ const utilityLinks = [
 
 export function AppTopbar() {
   return (
-    <div className="sticky top-0 z-50 flex h-10 items-center gap-4 bg-brand-blue px-3 text-xs text-white md:px-4">
+    <div className="sticky top-0 z-50 flex h-10 items-center gap-4 bg-brand-blue px-3 text-xs text-white md:px-4 lg:fixed lg:inset-x-0">
       <SidebarTrigger
         className="text-white hover:bg-white/10 hover:text-white lg:hidden"
         aria-label="Abrir menú de navegación"

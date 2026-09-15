@@ -15,8 +15,6 @@ const eslintConfig = defineConfig([
     // Legacy static site built by build.py — vendored/generated output,
     // not source we maintain (see docs/superpowers: do not modify dist/).
     "dist/**",
-    // One-time CommonJS generator script, run directly with `node`.
-    "scripts/generate-country-geo.cjs",
   ]),
 ]);
 

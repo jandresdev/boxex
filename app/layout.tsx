@@ -21,7 +21,7 @@ export default function RootLayout({
       <body>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
-          <SidebarInset>
+          <SidebarInset className="lg:pt-10">
             <AppTopbar />
             <main id="main">{children}</main>
             <AppFooter />
