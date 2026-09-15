@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { MapPin, ArrowRight } from "lucide-react"
 import { countries, slugify } from "@/lib/home-data"
+import { DestinationCard } from "./destination-card"
 
 const modes = ["Aéreo", "Marítimo", "Marítimo express", "Terrestre"]
 
@@ -33,22 +32,14 @@ export function DestinosFilter() {
           </button>
         ))}
       </div>
-      <div className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {entries.map(([country, m]) => (
-          <Link
+          <DestinationCard
             key={country}
+            country={country}
+            modes={m}
             href={`/destinos/${slugify(country)}`}
-            className="group relative block cursor-pointer border-b border-brand-line py-6 pr-8 transition-colors hover:bg-brand-pale"
-          >
-            <span className="flex items-center gap-2.5 text-[17px] text-brand-blue">
-              <MapPin className="size-[18px] shrink-0 text-brand-blue" />
-              {country}
-            </span>
-            <small className="ml-[26px] mt-2 block text-[11px] leading-[1.6] text-brand-blue/60">
-              {m.join(" · ")}
-            </small>
-            <ArrowRight className="absolute right-0 top-7 size-[18px] text-brand-blue transition-transform group-hover:translate-x-1" />
-          </Link>
+          />
         ))}
       </div>
       {entries.length === 0 && (
