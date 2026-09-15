@@ -22,25 +22,23 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <div className="flex items-center justify-between gap-2 px-2 py-1">
+        <div className="flex items-center justify-between gap-2 px-2 py-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <Link
             href="/"
             aria-label="Boxex, inicio"
-            className="flex items-center gap-2"
+            className="flex min-w-0 items-center group-data-[collapsible=icon]:hidden"
           >
             <Image
               src="/logo.png"
               alt="Boxex"
-              width={28}
-              height={28}
-              className="shrink-0"
+              width={2048}
+              height={407}
+              priority
+              className="h-7 w-auto shrink-0"
             />
-            <span className="text-sm font-semibold text-brand-blue group-data-[collapsible=icon]:hidden">
-              Boxex
-            </span>
           </Link>
           <SidebarTrigger
-            className="text-brand-blue hover:bg-brand-blue/10 group-data-[collapsible=icon]:mx-auto"
+            className="text-brand-blue hover:bg-brand-blue/10"
             aria-label="Contraer o expandir menú"
           />
         </div>
