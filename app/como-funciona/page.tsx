@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/layout/page-intro";
 import { JourneySection } from "@/components/home/journey";
+import { ProcessMotion } from "@/components/como-funciona/process-motion";
 import { CasilleroExplainer } from "@/components/como-funciona/casillero-explainer";
 
 export const metadata: Metadata = {
@@ -18,8 +19,9 @@ export default function ComoFuncionaPage() {
         description="Elige tu ruta y ten claro qué sucede después."
         image="/heroes/como-funciona.webp"
       />
+      <ProcessMotion />
+      <CasilleroExplainer showSteps={false} />
       <JourneySection />
-      <CasilleroExplainer />
     </>
   );
 }

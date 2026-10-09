@@ -10,7 +10,7 @@ import {
   paymentMethods,
 } from "@/lib/home-data"
 
-export function CasilleroExplainer() {
+export function CasilleroExplainer({ showSteps = true }: { showSteps?: boolean }) {
   return (
     <section id="casillero-virtual" className="bg-white">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
@@ -48,6 +48,7 @@ export function CasilleroExplainer() {
           ))}
         </Reveal>
 
+        {showSteps && (
         <Reveal delay={100}>
           <h3 className="mb-8 text-[22px] font-semibold text-brand-blue">
             De tu carrito a tu puerta, paso a paso.
@@ -80,6 +81,7 @@ export function CasilleroExplainer() {
             ))}
           </ol>
         </Reveal>
+        )}
 
         <Reveal
           delay={140}

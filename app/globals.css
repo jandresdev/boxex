@@ -389,3 +389,69 @@ select,
     animation: ui-hop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
+
+/* Como funciona: scroll-driven process walkthrough. */
+.process-card {
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.process-card[data-state="active"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.process-card[data-state="next"] {
+  opacity: 0;
+  transform: translateY(28px);
+  pointer-events: none;
+}
+.process-card[data-state="past"] {
+  opacity: 0;
+  transform: translateY(-28px);
+  pointer-events: none;
+}
+
+.process-station-dot {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #08245a;
+  color: rgba(255, 255, 255, 0.55);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+.process-station-label {
+  background: rgba(4, 16, 46, 0.7);
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.35s ease;
+}
+.process-station[data-state="done"] .process-station-dot {
+  border-color: var(--brand-gold);
+  background: rgba(214, 179, 106, 0.18);
+  color: var(--brand-gold);
+}
+.process-station[data-state="active"] .process-station-dot {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold);
+  color: var(--brand-blue);
+  transform: scale(1.18);
+  box-shadow: 0 0 0 8px rgba(214, 179, 106, 0.18);
+}
+.process-station[data-state="active"] .process-station-label,
+.process-station[data-state="done"] .process-station-label {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .process-boxy {
+    animation: buddy-bob 1.6s ease-in-out infinite;
+  }
+}
+@media (max-width: 639px) {
+  /* Stations crowd on phones: only the current one keeps its label. */
+  .process-station:not([data-state="active"]) .process-station-label {
+    display: none;
+  }
+}
