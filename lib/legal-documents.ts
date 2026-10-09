@@ -24,7 +24,9 @@ export const legalCategories: LegalCategory[] = [
       {
         title: "Políticas de Cumplimiento y Manual PTEE",
         description:
-          "Programa de Transparencia y Ética Empresarial de Boxex.",
+          "Programa de Transparencia y Ética Empresarial, supervisado por la Superintendencia de Sociedades. Establece los controles de VALLEYGROUP frente a riesgos de soborno transnacional y corrupción.",
+        file: "/documents/legal/manual-ptee.pdf",
+        meta: "Código PTEE-M-01 · Versión 01 · Vigente desde 18 feb 2025",
       },
     ],
   },
@@ -44,16 +46,31 @@ export const legalCategories: LegalCategory[] = [
     title: "Régimen de servicios postales",
     documents: [
       {
+        title: "Ley 1369 de 2009 — Régimen de los Servicios Postales",
+        description:
+          "Establece el régimen general de prestación de los servicios postales en Colombia y las entidades encargadas de su regulación, vigilancia y control.",
+        file: "/documents/legal/ley-1369-de-2009-regimen-servicios-postales.pdf",
+        meta: "El Congreso de Colombia · Ley 1369 de 2009",
+      },
+      {
         title: "Decreto 2142 de 2016",
         description:
           "Disposiciones para la importación y exportación de teléfonos móviles y celulares, incluyendo condiciones aplicables a tráfico postal y envíos urgentes.",
+        file: "/documents/legal/decreto-2142-de-2016.pdf",
+        meta: "Ministerio de Comercio, Industria y Turismo · Decreto 2142 de 2016",
       },
     ],
   },
   {
     title: "Reportes y operación normativa",
     documents: [
-      { title: "Reportes de información y/o reportes postales", description: "" },
+      {
+        title: "Resolución 2959 de 2010 — Reportes de Información",
+        description:
+          "Régimen de reporte de información de los operadores de servicios postales ante la Comisión de Regulación de Comunicaciones (CRC).",
+        file: "/documents/legal/resolucion-2959-de-2010-reportes-informacion.pdf",
+        meta: "Comisión de Regulación de Comunicaciones (CRC) · Resolución No. 2959 de 2010",
+      },
       { title: "Documentos de operación normativa", description: "" },
       {
         title: "Información importante relacionada con nuestros usuarios",
