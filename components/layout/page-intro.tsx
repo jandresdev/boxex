@@ -50,6 +50,7 @@ export function PageIntro({
   image = FALLBACK_IMAGE,
   actions = DEFAULT_ACTIONS,
   highlights,
+  flush = false,
 }: {
   kicker: string
   title: string
@@ -57,6 +58,8 @@ export function PageIntro({
   image?: string
   actions?: HeroAction[]
   highlights?: string[]
+  /** Skip the white spacer when the next section is full-bleed. */
+  flush?: boolean
 }) {
   const words = title.split(" ")
   const [primary, secondary] = actions
@@ -174,7 +177,7 @@ export function PageIntro({
           Sigue explorando <span className="hero-float inline-block text-base">↓</span>
         </a>
       </section>
-      <div id="contenido" className="scroll-mt-28 pt-14 lg:pt-16" />
+      <div id="contenido" className={flush ? "scroll-mt-28" : "scroll-mt-28 pt-14 lg:pt-16"} />
     </>
   )
 }

@@ -167,7 +167,7 @@ export function ProcessMotion() {
   }, [])
 
   return (
-    <section aria-labelledby="proceso-titulo" className="bg-[#04102e] text-white">
+    <section id="proceso" aria-labelledby="proceso-titulo" className="scroll-mt-28 bg-[#04102e] text-white">
       <div className="mx-auto max-w-6xl px-6 pt-20 lg:pt-28">
         <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold">
           Nuestro proceso

@@ -18,6 +18,11 @@ export default function ComoFuncionaPage() {
         title="Tu envío, paso a paso."
         description="Elige tu ruta y ten claro qué sucede después."
         image="/heroes/como-funciona.webp"
+        actions={[
+          { label: "Ver el proceso", href: "#proceso" },
+          { label: "Cotizar mi envío", href: "/cotizar" },
+        ]}
+        flush
       />
       <ProcessMotion />
       <CasilleroExplainer showSteps={false} />
