@@ -152,6 +152,8 @@ select,
 :root {
   --curtain-out: 1.3s;
   --hero-in: 1.55s;
+  /* Pin offset for stacked cards: topbar (40px) + header (~80px) + gap. */
+  --stack-top: 8.5rem;
 }
 
 @keyframes curtain-lift {
