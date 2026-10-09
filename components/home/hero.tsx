@@ -9,18 +9,7 @@ export function HeroSection() {
   return (
     <>
       <section className="relative isolate min-h-[78vh] overflow-hidden lg:min-h-[86vh]">
-        <HeroCarousel />
-
-        {/* Scrim so the copy stays readable over any slide */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#04102e]/85 via-[#04102e]/45 to-transparent"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#04102e]/70 via-transparent to-transparent"
-        />
-
+        <HeroCarousel>
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 py-16 lg:min-h-[86vh]">
           <div className="flex max-w-xl flex-col">
             <span className="hero-fade mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-white/85">
@@ -80,10 +69,11 @@ export function HeroSection() {
 
         <a
           href="#enviar"
-          className="absolute bottom-6 left-1/2 z-10 flex w-fit -translate-x-1/2 items-center gap-3 text-[11px] text-white/70 transition-colors hover:text-white lg:left-16 lg:translate-x-0"
+          className="absolute bottom-6 left-1/2 z-10 hidden w-fit -translate-x-1/2 items-center gap-3 lg:flex text-[11px] text-white/70 transition-colors hover:text-white lg:left-16 lg:translate-x-0"
         >
           Descubre tu próximo envío <span className="text-base">↓</span>
         </a>
+        </HeroCarousel>
       </section>
 
       <section

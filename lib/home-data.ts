@@ -168,6 +168,10 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 
 export const CASILLERO_REGISTER_URL = "https://clientes.boxexpress.com/register"
 export const CASILLERO_LOGIN_URL = "https://clientes.boxexpress.com/app/"
+// Línea de WhatsApp del casillero (landing y campañas de casillero virtual).
+export const CASILLERO_WHATSAPP_URL = `https://wa.me/573186609888?text=${encodeURIComponent(
+  "Hola Boxex, quiero información sobre el casillero virtual",
+)}`
 
 // Tarifas web Colombia suministradas por Boxex (landing de casillero). Pueden
 // cambiar sin previo aviso; la página lo advierte y remite a un asesor.

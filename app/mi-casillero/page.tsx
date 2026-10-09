@@ -8,7 +8,7 @@ import { Reveal } from "@/components/home/reveal"
 import {
   CASILLERO_LOGIN_URL,
   CASILLERO_REGISTER_URL,
-  WHATSAPP_URL,
+  CASILLERO_WHATSAPP_URL,
   casilleroBenefits,
   casilleroFaqs,
   casilleroRates,
@@ -43,7 +43,7 @@ export default function MiCasilleroPage() {
         <div className="grid divide-y divide-brand-line rounded-2xl border border-brand-line bg-white shadow-[0_12px_35px_rgba(1,22,137,0.08)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {[
             { kicker: "¿Ya tienes un envío?", title: "Consulta dónde está tu paquete", label: "Rastrear guía", href: "/rastreo" },
-            { kicker: "¿Necesitas ayuda?", title: "Habla con un asesor Boxex", label: "Ir a WhatsApp", href: WHATSAPP_URL },
+            { kicker: "¿Necesitas ayuda?", title: "Habla con un asesor Boxex", label: "Ir a WhatsApp", href: CASILLERO_WHATSAPP_URL },
             { kicker: "¿Ya tienes casillero?", title: "Gestiona tus compras", label: "Entrar", href: CASILLERO_LOGIN_URL },
           ].map((item) => {
             const isExternal = item.href.startsWith("http")
@@ -187,7 +187,7 @@ export default function MiCasilleroPage() {
               cambiar sin previo aviso. Confirma el valor vigente con un asesor.
             </p>
             <a
-              href={WHATSAPP_URL}
+              href={CASILLERO_WHATSAPP_URL}
               {...external}
               className="inline-flex items-center gap-1 text-[13px] font-bold text-brand-blue hover:underline"
             >
@@ -277,7 +277,7 @@ export default function MiCasilleroPage() {
             Y si algo sigue dando vueltas, un asesor te ayuda por WhatsApp.
           </p>
           <a
-            href={WHATSAPP_URL}
+            href={CASILLERO_WHATSAPP_URL}
             {...external}
             className="inline-flex items-center gap-1 text-[13px] font-bold text-brand-blue hover:underline"
           >
