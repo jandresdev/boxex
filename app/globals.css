@@ -311,3 +311,79 @@ select,
     animation: hero-float 2.4s ease-in-out infinite;
   }
 }
+
+/*
+ * Cursor buddy (Boxy follows the mouse) + playful hop on links/buttons.
+ * Only for precise hovering pointers without reduced-motion; touch devices
+ * never see the buddy and keep their tap behaviour untouched.
+ */
+.cursor-buddy {
+  display: none;
+}
+
+@keyframes buddy-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+}
+
+@keyframes buddy-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  18% {
+    transform: translateY(0) scale(1.12, 0.86);
+  }
+  45% {
+    transform: translateY(-20px) scale(0.94, 1.08) rotate(-8deg);
+  }
+  70% {
+    transform: translateY(0) scale(1.08, 0.92);
+  }
+  85% {
+    transform: translateY(-4px) scale(1, 1);
+  }
+}
+
+@keyframes ui-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cursor-buddy {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+    will-change: transform;
+  }
+  .cursor-buddy[data-visible="true"] {
+    opacity: 1;
+  }
+  .cursor-buddy-sprite {
+    animation: buddy-bob 2.4s ease-in-out infinite;
+  }
+  .cursor-buddy[data-state="hop"] .cursor-buddy-sprite {
+    animation: buddy-hop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  }
+
+  :is(a, button, summary, [role="button"]):not(.hero-fade, [data-no-hop]):hover {
+    animation: ui-hop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}

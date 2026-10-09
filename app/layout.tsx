@@ -6,6 +6,7 @@ import { AppFooter } from "@/components/layout/app-footer";
 import { WhatsappFloat } from "@/components/layout/whatsapp-float";
 import { CopyGuard } from "@/components/layout/copy-guard";
 import { PageCurtain } from "@/components/layout/page-curtain";
+import { CursorBuddy } from "@/components/layout/cursor-buddy";
 
 export const metadata: Metadata = {
   title: "Boxex",
@@ -26,6 +27,7 @@ export default function RootLayout({
         <AppFooter />
         <WhatsappFloat />
         <CopyGuard />
+        <CursorBuddy />
         <PageCurtain />
       </body>
     </html>

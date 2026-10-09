@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react"
+import type { ComponentProps, CSSProperties, ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 type HeroAction = { label: string; href: string }
@@ -17,6 +17,26 @@ function delay(seconds: number): CSSProperties {
   return { "--d": `${seconds}s` } as CSSProperties
 }
 
+// Forwards the props Button's asChild Slot injects (className, data-*).
+function ActionLink({
+  action,
+  children,
+  ...props
+}: { action: HeroAction; children: ReactNode } & ComponentProps<"a">) {
+  if (action.href.startsWith("http")) {
+    return (
+      <a {...props} href={action.href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    )
+  }
+  return (
+    <Link {...props} href={action.href}>
+      {children}
+    </Link>
+  )
+}
+
 /**
  * Full-bleed page hero, sharing the home hero's language: background image
  * with Ken Burns motion, navy scrims, gold-dot kicker, word-by-word headline
@@ -29,12 +49,14 @@ export function PageIntro({
   description,
   image = FALLBACK_IMAGE,
   actions = DEFAULT_ACTIONS,
+  highlights,
 }: {
   kicker: string
   title: string
   description: string
   image?: string
   actions?: HeroAction[]
+  highlights?: string[]
 }) {
   const words = title.split(" ")
   const [primary, secondary] = actions
@@ -111,10 +133,10 @@ export function PageIntro({
                   asChild
                   className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90"
                 >
-                  <Link href={primary.href}>
+                  <ActionLink action={primary}>
                     {primary.label}
                     <ArrowRight />
-                  </Link>
+                  </ActionLink>
                 </Button>
                 {secondary && (
                   <Button
@@ -122,10 +144,24 @@ export function PageIntro({
                     variant="outline"
                     className="cursor-pointer border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
                   >
-                    <Link href={secondary.href}>{secondary.label}</Link>
+                    <ActionLink action={secondary}>{secondary.label}</ActionLink>
                   </Button>
                 )}
               </div>
+            )}
+
+            {highlights && highlights.length > 0 && (
+              <ul
+                className="hero-fade mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/75"
+                style={delay(0.6)}
+              >
+                {highlights.map((item) => (
+                  <li key={item} className="flex items-center gap-1.5">
+                    <Check className="size-4 text-brand-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
         </div>

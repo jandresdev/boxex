@@ -5,7 +5,7 @@ const utilityLinks = [
   { href: "/aliados", label: "¿Quieres ser nuestro aliado?" },
   { href: "/rastreo", label: "Rastrea tu envío" },
   { href: "/pagos", label: "Pagos" },
-  { href: "https://clientes.boxexpress.com/app/", label: "Mi casillero ↗" },
+  { href: "/mi-casillero", label: "Mi casillero" },
 ]
 
 export function AppTopbar() {

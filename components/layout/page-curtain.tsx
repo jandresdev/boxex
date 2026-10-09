@@ -33,6 +33,7 @@ const SCENES: Record<string, CurtainScene> = {
   guias: { label: "Guías", character: "boxy" },
   condiciones: { label: "Condiciones", character: "boxyta" },
   legal: { label: "Aspectos legales", character: "boxy" },
+  "mi-casillero": { label: "Mi casillero", character: "boxyta" },
 }
 
 const FALLBACK: CurtainScene = { label: "Unlimited Courier", character: "boxy" }

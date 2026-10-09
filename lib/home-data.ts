@@ -167,6 +167,43 @@ export const WHATSAPP_NUMBER = "573176410982"
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 
 export const CASILLERO_REGISTER_URL = "https://clientes.boxexpress.com/register"
+export const CASILLERO_LOGIN_URL = "https://clientes.boxexpress.com/app/"
+
+// Tarifas web Colombia suministradas por Boxex (landing de casillero). Pueden
+// cambiar sin previo aviso; la página lo advierte y remite a un asesor.
+export const casilleroRates = {
+  libraALibra: [
+    { weight: "1 lb", price: "USD 13.54" },
+    { weight: "2 lb", price: "USD 14.99" },
+    { weight: "3 lb", price: "USD 17.62" },
+    { weight: "4 lb", price: "USD 19.16" },
+  ],
+  webBox: { weight: "5 libras", price: "USD 22.79" },
+  regular: { pricePerLb: "USD 1.15", minimum: "Cobro mínimo de 10 lb" },
+}
+
+export const casilleroFaqs = [
+  {
+    q: "¿Abrir el casillero tiene costo?",
+    a: "No. El registro de tu casillero virtual Boxex es gratuito.",
+  },
+  {
+    q: "¿Qué es el IDBOX?",
+    a: "Es tu número personal de identificación en Boxex. Debes incluirlo en la dirección para asociar cada paquete con tu cuenta.",
+  },
+  {
+    q: "¿Puedo comprar en cualquier tienda?",
+    a: "Puedes comprar en miles de tiendas de Estados Unidos, siempre que el producto cumpla las condiciones de transporte e importación.",
+  },
+  {
+    q: "¿Puedo consolidar varios paquetes?",
+    a: "Sí. Boxex puede agrupar varias compras en un solo envío según las características de los productos.",
+  },
+  {
+    q: "¿Cómo sé que mi paquete llegó a Miami?",
+    a: "Recibirás una notificación cuando el paquete sea identificado y procesado en nuestra bodega.",
+  },
+]
 
 export const casilleroBenefits = [
   {
