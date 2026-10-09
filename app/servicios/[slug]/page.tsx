@@ -41,6 +41,7 @@ export default async function ServicioDetailPage({
         kicker={`Servicios / ${service.name}`}
         title={service.tag}
         description={service.description}
+        image="/heroes/servicios.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 lg:grid-cols-2">
         <div className="rounded-xl bg-brand-pale p-8">

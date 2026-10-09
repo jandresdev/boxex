@@ -15,6 +15,7 @@ export default function AliadosPage() {
         kicker="Aliados"
         title="Conectemos más oportunidades."
         description="Consulta cómo solicitar tu vinculación a la red de agentes autorizados Boxex."
+        image="/heroes/aliados.webp"
       />
       <section className="mx-auto max-w-3xl px-6 pb-20">
         <div className="rounded-xl border border-white/60 bg-white/70 p-8 backdrop-blur-lg">

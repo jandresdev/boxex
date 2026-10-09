@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -22,21 +23,21 @@ export function HeroSection() {
 
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 py-16 lg:min-h-[86vh]">
           <div className="flex max-w-xl flex-col">
-            <span className="mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-white/85">
+            <span className="hero-fade mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-white/85">
               <span className="size-[7px] rounded-full bg-brand-gold" />
               Desde USA. Hasta los tuyos.
             </span>
-            <h1 className="mb-6 text-[46px] font-bold leading-[1.02] tracking-[-0.065em] text-white sm:text-[64px] lg:text-[72px]">
+            <h1 style={{ "--d": "0.1s" } as CSSProperties} className="hero-fade mb-6 text-[46px] font-bold leading-[1.02] tracking-[-0.065em] text-white sm:text-[64px] lg:text-[72px]">
               Lo que envías,
               <br />
               <span className="text-brand-gold">acerca.</span>
             </h1>
-            <p className="mb-7 max-w-[480px] text-[17px] leading-[1.65] text-white/80">
+            <p style={{ "--d": "0.3s" } as CSSProperties} className="hero-fade mb-7 max-w-[480px] text-[17px] leading-[1.65] text-white/80">
               Tu familia. Tus compras. Tu próximo negocio.
               <br />
               Conectamos Estados Unidos con 11 destinos de Latinoamérica.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div style={{ "--d": "0.45s" } as CSSProperties} className="hero-fade flex flex-wrap gap-3">
               <Button asChild className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90">
                 <Link href="/cotizar">
                   Cotizar mi envío
@@ -51,7 +52,7 @@ export function HeroSection() {
                 <a href="https://clientes.boxexpress.com/">Crear casillero</a>
               </Button>
             </div>
-            <div className="mt-9 flex items-center gap-3">
+            <div style={{ "--d": "0.6s" } as CSSProperties} className="hero-fade mt-9 flex items-center gap-3">
               <div>
                 <strong className="block text-[30px] tracking-[-0.05em] text-white">
                   40+

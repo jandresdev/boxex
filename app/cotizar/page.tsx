@@ -16,6 +16,11 @@ export default function CotizarPage() {
         kicker="Cotizar"
         title="Empieza con tu próximo envío."
         description="Prepara los datos y continúa con un asesor de Boxex para recibir una cotización."
+        image="/heroes/cotizar.webp"
+        actions={[
+          { label: "Hablar con un asesor", href: "/contacto" },
+          { label: "Ver destinos", href: "/destinos" },
+        ]}
       />
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <Suspense fallback={null}>

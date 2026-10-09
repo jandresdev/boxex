@@ -143,37 +143,171 @@ select,
   user-select: text;
 }
 
-/* Small bounce-in for the intro curtain's character. */
-@keyframes intro-pop {
+/*
+ * Page curtain + hero choreography.
+ * The curtain lifts at --curtain-out; hero content reveals right after it.
+ * Every hidden starting state lives inside the no-preference query, so
+ * reduced-motion users get static, fully visible content.
+ */
+:root {
+  --curtain-out: 1.3s;
+  --hero-in: 1.55s;
+}
+
+@keyframes curtain-lift {
   0% {
-    transform: scale(0.7) translateY(12px);
-    opacity: 0;
+    transform: translateY(0);
+    visibility: visible;
   }
-  60% {
-    transform: scale(1.05) translateY(0);
-    opacity: 1;
+  99% {
+    visibility: visible;
   }
   100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
+    transform: translateY(-100%);
+    visibility: hidden;
   }
 }
 
-/* Slow diagonal light sweep for the sidebar's liquid-glass panel. */
-@keyframes glass-shimmer {
+@keyframes curtain-letter {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes curtain-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes curtain-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Mascot pops in, then waves side to side while the bar fills. */
+@keyframes curtain-mascot {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.6) rotate(-8deg);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.06) rotate(4deg);
+  }
+  62% {
+    transform: translateY(0) scale(1) rotate(-5deg);
+  }
+  78% {
+    transform: translateY(-4px) scale(1) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ken Burns: settle from a slight zoom as the curtain lifts, then drift. */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hero-drift {
   0%,
   100% {
-    transform: translateY(-8%) rotate(-8deg);
-    opacity: 0.55;
+    transform: scale(1.04) translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(8%) rotate(-8deg);
-    opacity: 0.85;
+    transform: scale(1.08) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .glass-shimmer {
-    animation: glass-shimmer 7s ease-in-out infinite;
+  .page-curtain {
+    animation: curtain-lift 0.9s cubic-bezier(0.86, 0, 0.07, 1)
+      var(--curtain-out) forwards;
+  }
+  .curtain-letter {
+    transform: translateY(110%);
+    animation: curtain-letter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .curtain-meta {
+    opacity: 0;
+    animation: curtain-fade 0.6s ease-out 0.4s forwards;
+  }
+  .curtain-bar {
+    transform: scaleX(0);
+    animation: curtain-bar 1s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+  }
+  .curtain-mascot {
+    opacity: 0;
+    animation: curtain-mascot 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.05s
+      forwards;
+  }
+
+  .hero-word {
+    transform: translateY(105%);
+    animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+      calc(var(--hero-in) + var(--i, 0) * 0.07s) forwards;
+  }
+  .hero-fade {
+    opacity: 0;
+    animation: hero-fade 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+      calc(var(--hero-in) + var(--d, 0s)) forwards;
+  }
+  .hero-bg {
+    animation:
+      hero-settle 2.2s cubic-bezier(0.22, 1, 0.36, 1) var(--curtain-out) both,
+      hero-drift 18s ease-in-out calc(var(--curtain-out) + 2.2s) infinite;
+  }
+  .hero-float {
+    animation: hero-float 2.4s ease-in-out infinite;
   }
 }

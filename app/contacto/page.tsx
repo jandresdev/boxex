@@ -16,6 +16,7 @@ export default function ContactoPage() {
         kicker="Contacto"
         title="Hablemos de lo que necesitas."
         description="Elige un canal de atención para tu consulta."
+        image="/heroes/contacto.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-5 px-6 pb-20 sm:grid-cols-3">
         <article className="rounded-xl border border-white/60 bg-white/70 p-7 backdrop-blur-lg">

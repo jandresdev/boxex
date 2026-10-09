@@ -45,6 +45,7 @@ export default async function DestinoDetailPage({
         kicker={`Destinos / ${country}`}
         title={`Estados Unidos → ${country}`}
         description="Tu siguiente conexión empieza aquí."
+        image="/heroes/destinos.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 lg:grid-cols-2">
         <div className="rounded-xl bg-brand-pale p-8">

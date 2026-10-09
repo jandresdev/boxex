@@ -26,6 +26,7 @@ export default function GuiasPage() {
         kicker="Guías"
         title="Envía con más claridad."
         description="Orientación práctica para tu primer envío y tus compras online."
+        image="/heroes/guias.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-20 sm:grid-cols-2">
         {guides.map((g) => (

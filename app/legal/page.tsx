@@ -16,6 +16,7 @@ export default function LegalPage() {
         kicker="Aspectos legales"
         title="Información para una relación clara."
         description="Consulta la documentación legal, normativa y de cumplimiento de Boxex, organizada por categorías."
+        image="/heroes/legal.webp"
       />
       <section className="mx-auto max-w-5xl px-6 pb-20">
         <DocumentCategoryList categories={legalCategories} />

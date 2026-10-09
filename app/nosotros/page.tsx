@@ -16,6 +16,7 @@ export default function NosotrosPage() {
         kicker="Sobre Boxex"
         title="Conectar es lo que nos mueve."
         description="Más de 35 años de experiencia en logística, courier y envíos internacionales."
+        image="/heroes/nosotros.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 lg:grid-cols-2">
         <div>

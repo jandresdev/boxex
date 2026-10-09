@@ -15,6 +15,7 @@ export default function PagosPage() {
         kicker="Pagos"
         title="Tu orden, en el canal correcto."
         description="Ten a mano el número de orden asignado a tu envío."
+        image="/heroes/pagos.webp"
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 lg:grid-cols-2">
         <div className="rounded-xl border border-white/60 bg-white/70 p-8 backdrop-blur-lg">

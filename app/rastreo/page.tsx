@@ -15,6 +15,11 @@ export default function RastreoPage() {
         kicker="Rastreo"
         title="Tu paquete tiene un recorrido."
         description="Consulta su estado con tu número de guía Boxex."
+        image="/heroes/rastreo.webp"
+        actions={[
+          { label: "Cotizar mi envío", href: "/cotizar" },
+          { label: "Ver oficinas", href: "/oficinas" },
+        ]}
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 lg:grid-cols-2">
         <form

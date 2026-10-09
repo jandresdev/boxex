@@ -16,6 +16,7 @@ export default function CondicionesPage() {
         kicker="Condiciones y restricciones"
         title="Un buen envío empieza informado."
         description="Revisa las condiciones de utilización de nuestros servicios antes de comprar, empacar o despachar."
+        image="/heroes/condiciones.webp"
       />
       <section className="mx-auto max-w-5xl px-6 pb-20">
         <DocumentCategoryList categories={condicionesCategories} />
