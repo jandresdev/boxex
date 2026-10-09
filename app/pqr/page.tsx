@@ -17,6 +17,7 @@ export default function PqrPage() {
         kicker="PQRs"
         title="Queremos conocer tu caso."
         description="Radica tu petición, queja, reclamo o sugerencia. Ten a mano la guía y los datos del envío para facilitar la atención."
+        image="/heroes/pqr.webp"
       />
       <section className="mx-auto max-w-3xl px-6 pb-20">
         <PqrForm />

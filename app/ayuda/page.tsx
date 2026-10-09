@@ -17,6 +17,7 @@ export default function AyudaPage() {
         kicker="Ayuda"
         title="En cada paso, una respuesta."
         description="Encuentra orientación para preparar y seguir tu envío."
+        image="/heroes/ayuda.webp"
       />
       <section className="mx-auto max-w-4xl px-6 pb-14">
         <div className="flex flex-col divide-y divide-brand-line border-y border-brand-line">

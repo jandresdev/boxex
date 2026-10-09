@@ -18,6 +18,7 @@ export default function ServiciosPage() {
         kicker="Servicios"
         title="¿Qué quieres hacer llegar?"
         description="Elige la solución para tu paquete, tus compras o tu negocio."
+        image="/heroes/servicios.webp"
       />
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -15,6 +15,7 @@ export default function OficinasPage() {
         kicker="Oficinas"
         title="Siempre hay alguien cerca."
         description="Encuentra las direcciones y teléfonos de atención en Estados Unidos y Colombia."
+        image="/heroes/oficinas.webp"
       />
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <OficinasSearch />

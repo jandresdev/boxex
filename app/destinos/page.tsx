@@ -15,6 +15,7 @@ export default function DestinosPage() {
         kicker="Destinos"
         title="Más cerca, país por país."
         description="Desde Estados Unidos hacia Latinoamérica. Elige tu destino para preparar el envío."
+        image="/heroes/destinos.webp"
       />
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <DestinosFilter />
