@@ -165,3 +165,69 @@ export const footerLinks = {
 
 export const WHATSAPP_NUMBER = "573176410982"
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
+
+export const CASILLERO_REGISTER_URL = "https://clientes.boxexpress.com/register"
+
+export const casilleroBenefits = [
+  {
+    title: "Dirección exclusiva en Estados Unidos",
+    text: "Tu casillero es gratuito y cuenta con un IDBOX único para identificar cada compra.",
+  },
+  {
+    title: "Consolidación y reempaque",
+    text: "Agrupamos varias compras en un solo despacho para ayudarte a optimizar el envío.",
+  },
+  {
+    title: "Seguimiento y notificaciones",
+    text: "Conoce el estado de tus paquetes desde que llegan a bodega hasta la entrega.",
+  },
+  {
+    title: "Acompañamiento real",
+    text: "Nuestro equipo te orienta antes, durante y después de tu compra.",
+  },
+]
+
+export const casilleroSteps = [
+  {
+    title: "Regístrate",
+    text: "Crea tu cuenta gratis y recibe tu número personal IDBOX.",
+    image: "/casillero/paso-02.png",
+  },
+  {
+    title: "Compra en EE. UU.",
+    text: "Compra en Amazon, Walmart, eBay, Apple o tu tienda favorita.",
+    image: "/casillero/paso-03.png",
+  },
+  {
+    title: "Envía a tu casillero",
+    text: "Usa la dirección de tu casillero y agrega siempre tu IDBOX.",
+    image: "/casillero/paso-04.png",
+  },
+  {
+    title: "Notifica tu compra",
+    text: "Registra la tienda, orden y número de rastreo en la plataforma.",
+    image: "/casillero/paso-05.png",
+  },
+  {
+    title: "Recibimos",
+    text: "Te avisamos cuando el paquete llegue a nuestra bodega.",
+    image: "/casillero/paso-06.png",
+  },
+  {
+    title: "Liquida",
+    text: "Verificamos peso y medidas para generar el valor de tu envío.",
+    image: "/casillero/paso-07.png",
+  },
+  {
+    title: "Pagas",
+    text: "Elige el método de pago disponible que más te convenga.",
+    image: "/casillero/paso-08.png",
+  },
+  {
+    title: "Despachamos y recibes",
+    text: "Despachamos tu envío y lo entregamos en la dirección indicada.",
+    image: "/casillero/paso-09.png",
+  },
+]
+
+export const paymentMethods = ["PSE", "PayPal", "Zelle"]
