@@ -38,7 +38,7 @@ export default function AyudaPage() {
           <Link href="/condiciones">Condiciones y restricciones</Link>
         </Button>
         <Button asChild variant="outline" className="cursor-pointer">
-          <Link href="/reclamaciones">Quejas y reclamos</Link>
+          <Link href="/pqr">PQRs</Link>
         </Button>
         <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
           <Link href="/contacto">Hablar con Boxex</Link>
