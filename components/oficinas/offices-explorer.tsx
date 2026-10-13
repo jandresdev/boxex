@@ -333,6 +333,18 @@ export function OfficesExplorer() {
                   >
                     Cómo llegar <ArrowUpRight className="size-3.5" />
                   </a>
+                  {office.whatsapp && (
+                    <a
+                      href={`https://wa.me/${office.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hola, Boxex ${office.city}. Quisiera más información.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`WhatsApp de la oficina ${office.city}`}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-[#1fb45b] px-3 py-1 text-[13px] font-semibold text-white hover:opacity-90"
+                    >
+                      <MessageCircle className="size-3.5" />
+                      WhatsApp
+                    </a>
+                  )}
                 </div>
               </li>
             )
@@ -433,7 +445,7 @@ export function OfficesExplorer() {
                 </a>
                 {selected.whatsapp && (
                   <a
-                    href={`https://wa.me/${selected.whatsapp.replace(/\D/g, "")}`}
+                    href={`https://wa.me/${selected.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Hola, Boxex ${selected.city}. Quisiera más información.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-full bg-[#1fb45b] px-3.5 py-2 font-semibold text-white hover:opacity-90"
