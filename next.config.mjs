@@ -21,6 +21,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/servicios/casillero-virtual",
+        destination: "/mi-casillero",
+        permanent: true,
+      },
+      {
         source: "/contacto",
         destination: "/ayuda#contacto",
         permanent: true,

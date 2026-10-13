@@ -43,6 +43,7 @@ export const services: Service[] = [
   },
   {
     slug: "casillero-virtual",
+    href: "/mi-casillero",
     name: "Casillero virtual",
     tag: "Tus compras en USA, más cerca.",
     description:
