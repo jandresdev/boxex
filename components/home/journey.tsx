@@ -1,15 +1,7 @@
-"use client"
-
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { journeySteps } from "@/lib/home-data"
-
-const PackageScene = dynamic(
-  () => import("./package-scene").then((m) => m.PackageScene),
-  { ssr: false }
-)
 
 export function JourneySection() {
   return (
@@ -26,21 +18,17 @@ export function JourneySection() {
           </h2>
           <p className="mb-2 max-w-[390px] text-[16px] text-white/85">
             Un recorrido claro, desde la primera pregunta hasta la entrega.
-            Gira la caja, es interactiva.
+            Nosotros te acompañamos en cada paso.
           </p>
-          <div className="relative h-[260px] sm:h-[320px]" aria-hidden="true">
-            <PackageScene />
-            {/* Boxy señala la caja: acompaña el recorrido "de tus manos a su puerta". */}
+          <figure className="relative my-6 aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-[28px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55)] ring-1 ring-white/10">
             <Image
-              src="/characters/boxy-halloween-cutout.webp"
-              alt=""
-              width={410}
-              height={365}
-              sizes="160px"
-              draggable={false}
-              className="pointer-events-none absolute -right-2 bottom-0 z-10 h-auto w-32 select-none drop-shadow-[0_14px_18px_rgba(0,0,0,0.4)] motion-safe:animate-[hero-float_4s_ease-in-out_infinite] sm:right-0 sm:w-40"
+              src="/servicios/de-tus-manos-a-su-puerta.webp"
+              alt="Boxy entrega un paquete a Boxella en la puerta de su casa, siguiendo una ruta dorada"
+              fill
+              sizes="(min-width: 1024px) 520px, 100vw"
+              className="object-cover"
             />
-          </div>
+          </figure>
           <Button
             asChild
             variant="outline"
