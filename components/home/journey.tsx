@@ -1,6 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { journeySteps } from "@/lib/home-data"
@@ -29,6 +30,16 @@ export function JourneySection() {
           </p>
           <div className="relative h-[260px] sm:h-[320px]" aria-hidden="true">
             <PackageScene />
+            {/* Boxy señala la caja: acompaña el recorrido "de tus manos a su puerta". */}
+            <Image
+              src="/characters/boxy-halloween-cutout.webp"
+              alt=""
+              width={410}
+              height={365}
+              sizes="160px"
+              draggable={false}
+              className="pointer-events-none absolute -right-2 bottom-0 z-10 h-auto w-32 select-none drop-shadow-[0_14px_18px_rgba(0,0,0,0.4)] motion-safe:animate-[hero-float_4s_ease-in-out_infinite] sm:right-0 sm:w-40"
+            />
           </div>
           <Button
             asChild
