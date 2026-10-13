@@ -20,9 +20,8 @@ function circularOffset(i: number, current: number) {
  * overlap and it scales cleanly at any viewport). Drag/swipe, arrow
  * keys, prev/next buttons and dots all move a single `index` state;
  * card position is derived from the circular offset, so it loops
- * infinitely both directions. Clicking a side card re-centers it
- * instead of navigating (it's rotated away and hard to read); clicking
- * the centered card follows its link like a normal card. Respects
+ * infinitely both directions. Every visible card links to its
+ * service page; a drag never triggers navigation. Respects
  * prefers-reduced-motion by skipping the CSS transition.
  */
 export function ServiceCarousel() {
@@ -60,14 +59,16 @@ export function ServiceCarousel() {
 
   function onPointerDown(e: React.PointerEvent<HTMLDivElement>) {
     dragRef.current = { startX: e.clientX, moved: false }
-    e.currentTarget.setPointerCapture(e.pointerId)
     setDragging(true)
     setPaused(true)
   }
   function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
     if (!dragging) return
-    if (Math.abs(e.clientX - dragRef.current.startX) > 6) {
+    if (!dragRef.current.moved && Math.abs(e.clientX - dragRef.current.startX) > 6) {
       dragRef.current.moved = true
+      // Capturar el puntero solo al arrastrar: si se captura en pointerdown,
+      // el clic se redirige al contenedor y los enlaces de las tarjetas no navegan.
+      e.currentTarget.setPointerCapture(e.pointerId)
     }
   }
   function onPointerUp(e: React.PointerEvent<HTMLDivElement>) {
@@ -132,7 +133,6 @@ export function ServiceCarousel() {
             opacity: abs > 1 ? 0.3 : 1,
             width: cardWidth,
             zIndex: 10 - abs,
-            pointerEvents: dragging ? "none" : "auto",
           }
 
           return (
@@ -150,12 +150,9 @@ export function ServiceCarousel() {
                     e.preventDefault()
                     return
                   }
-                  if (!isCenter) {
-                    e.preventDefault()
-                    setIndex(i)
-                  }
                 }}
                 tabIndex={isCenter ? 0 : -1}
+                aria-label={`${service.name}: conoce el servicio`}
                 className={`group flex h-full cursor-pointer select-none flex-col items-start rounded-2xl border border-white/60 bg-white/85 p-7 backdrop-blur-xl transition-shadow ${
                   isCenter
                     ? "shadow-[0_30px_60px_-10px_rgba(1,22,137,0.28)] hover:shadow-[0_35px_70px_-10px_rgba(1,22,137,0.35)]"
