@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/layout/page-intro";
-import { OficinasSearch } from "@/components/oficinas/oficinas-search";
+import { OfficesExplorer } from "@/components/oficinas/offices-explorer";
 
 export const metadata: Metadata = {
-  title: "Oficinas de Boxex en Estados Unidos y Colombia",
+  title: "Oficinas de Boxex: mapa en Estados Unidos, Colombia y Guatemala",
   description:
-    "Encuentra direcciones y teléfonos de las oficinas Boxex en Miami, New York, New Jersey, Boston, Texas y Colombia.",
+    "Mapa interactivo con las oficinas de Boxex en Miami, New York, New Jersey, Boston, Texas, Colombia y Guatemala: direcciones, teléfonos, WhatsApp y cómo llegar.",
 };
 
 export default function OficinasPage() {
@@ -14,11 +14,15 @@ export default function OficinasPage() {
       <PageIntro
         kicker="Oficinas"
         title="Siempre hay alguien cerca."
-        description="Encuentra las direcciones y teléfonos de atención en Estados Unidos y Colombia."
+        description="Explora el mapa y encuentra la dirección, el teléfono y el WhatsApp de cada oficina en Estados Unidos, Colombia y Guatemala."
         image="/heroes/oficinas.webp"
+        actions={[
+          { label: "Ver el mapa", href: "#mapa" },
+          { label: "Hablar con un asesor", href: "/contacto" },
+        ]}
       />
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <OficinasSearch />
+      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
+        <OfficesExplorer />
       </section>
     </>
   );
