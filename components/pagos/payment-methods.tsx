@@ -1,21 +1,20 @@
 "use client"
 
 import { useId, useState } from "react"
-import { CheckCircle2, CreditCard, ExternalLink, ShieldCheck, Wallet } from "lucide-react"
+import { CreditCard, ExternalLink, ShieldCheck, Wallet } from "lucide-react"
 import { payMethods } from "@/lib/pagos-data"
 
 const icons = { paypal: Wallet, tarjeta: CreditCard } as const
 
 /**
  * Official payment forms of BOXEX. Same forms and steps as boxexpress.com/pagos:
- * the form is loaded from the official payment host inside an iframe, only
- * after the visitor picks the method (no third-party request until then), and
- * every method also offers an "open in a new tab" link in case the embed is
- * blocked by the browser.
+ * the form of the selected method loads right away inside an iframe (centered,
+ * with a spinner until it is ready), and every method also offers an "open in
+ * a new tab" link in case the embed is blocked by the browser.
  */
 export function PaymentMethods() {
   const [active, setActive] = useState<(typeof payMethods)[number]["id"]>("paypal")
-  const [loaded, setLoaded] = useState<Record<string, boolean>>({})
+  const [ready, setReady] = useState<Record<string, boolean>>({})
   const uid = useId()
   const method = payMethods.find((m) => m.id === active) ?? payMethods[0]
 
@@ -67,7 +66,7 @@ export function PaymentMethods() {
         role="tabpanel"
         id={`${uid}-panel`}
         aria-labelledby={`${uid}-tab-${method.id}`}
-        className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]"
+        className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
       >
         <div className="rounded-3xl border border-white/15 bg-white/5 p-6 text-white sm:p-8">
           <h3 className="mb-1 text-xl font-bold">¿Cómo funciona?</h3>
@@ -100,33 +99,20 @@ export function PaymentMethods() {
               Abrir en una pestaña nueva <ExternalLink className="size-3.5" />
             </a>
           </div>
-          <div className="relative overflow-hidden rounded-xl border border-brand-line bg-brand-pale/50" style={{ height: method.height }}>
-            {!loaded[method.id] ? (
-              <div className="grid h-full place-items-center p-6 text-center">
-                <div>
-                  <CheckCircle2 className="mx-auto mb-3 size-8 text-brand-blue/40" />
-                  <p className="mb-4 text-sm text-brand-blue/70">
-                    Ten a mano tu número de orden. El formulario seguro de {method.label} se carga desde el portal de pagos de Boxex.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setLoaded((l) => ({ ...l, [method.id]: true }))}
-                    className="cursor-pointer rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-blue/90"
-                  >
-                    Cargar formulario de pago
-                  </button>
-                </div>
+          <div className="relative mx-auto w-full max-w-[640px]" style={{ height: method.height }}>
+            {!ready[method.id] && (
+              <div aria-hidden="true" className="absolute inset-0 grid place-items-center rounded-xl bg-brand-pale/50">
+                <span className="size-8 animate-spin rounded-full border-[3px] border-brand-blue/20 border-t-brand-blue motion-reduce:animate-none" />
               </div>
-            ) : (
-              <iframe
-                key={method.id}
-                src={method.src}
-                title={`Formulario de pago con ${method.label}`}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="size-full border-0"
-              />
             )}
+            <iframe
+              key={method.id}
+              src={method.src}
+              title={`Formulario de pago con ${method.label}`}
+              referrerPolicy="strict-origin-when-cross-origin"
+              onLoad={() => setReady((r) => ({ ...r, [method.id]: true }))}
+              className={`absolute inset-0 size-full rounded-xl border-0 transition-opacity duration-300 ${ready[method.id] ? "opacity-100" : "opacity-0"}`}
+            />
           </div>
         </div>
       </div>

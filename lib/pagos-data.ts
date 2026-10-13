@@ -23,7 +23,7 @@ export const payMethods: PayMethod[] = [
     label: "PayPal",
     coverage: "Colombia y Estados Unidos",
     src: "https://forms.controlboxexpress.com/app/pagoPaypal",
-    height: 240,
+    height: 190,
     steps: [
       "Digita el número de orden que se te ha asignado.",
       "Haz clic en el botón PAGAR AHORA.",
@@ -36,7 +36,7 @@ export const payMethods: PayMethod[] = [
     label: "Tarjeta",
     coverage: "Estados Unidos",
     src: "https://forms.controlboxexpress.com/app/pagoBlackstone",
-    height: 460,
+    height: 350,
     steps: [
       "Digita el número de orden que se te ha asignado.",
       "Haz clic en el botón CONTINUAR.",
