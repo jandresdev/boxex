@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 const utilityLinks = [
+  { href: "/condiciones", label: "Condiciones y restricciones" },
   { href: "/pqr", label: "PQRs" },
   { href: "/aliados", label: "¿Quieres ser nuestro aliado?" },
   { href: "/rastreo", label: "Rastrea tu envío" },

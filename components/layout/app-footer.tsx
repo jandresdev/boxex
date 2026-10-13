@@ -53,14 +53,9 @@ export function AppFooter() {
           <Link href="/condiciones" className="hover:text-brand-blue hover:underline">
             Condiciones y restricciones
           </Link>
-          <a
-            href="https://boxexpress.com/centroaspectos-legales/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-brand-blue hover:underline"
-          >
+          <Link href="/legal" className="hover:text-brand-blue hover:underline">
             Protección de datos
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

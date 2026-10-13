@@ -63,10 +63,10 @@ ${record.guia ? `Número de guía: ${record.guia}\n` : ""}Detalle: ${record.mens
   if (registered) {
     return (
       <div
-        className="rounded-xl border border-white/60 bg-white/70 p-8 backdrop-blur-lg"
+        className="rounded-3xl border border-emerald-200 bg-emerald-50 p-8 sm:p-12"
         aria-live="polite"
       >
-        <h2 className="mb-2 text-lg font-semibold text-brand-blue">
+        <h2 className="mb-2 text-2xl font-bold text-brand-blue">
           Tu solicitud fue registrada.
         </h2>
         <p className="text-sm text-brand-blue/70">
@@ -80,13 +80,13 @@ ${record.guia ? `Número de guía: ${record.guia}\n` : ""}Detalle: ${record.mens
   if (whatsappMessage) {
     return (
       <div
-        className="rounded-xl border border-white/60 bg-white/70 p-8 backdrop-blur-lg"
+        className="rounded-3xl border border-white bg-white p-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:p-10"
         aria-live="polite"
       >
-        <h2 className="mb-2 text-lg font-semibold text-brand-blue">
+        <h2 className="mb-2 text-xl font-bold text-brand-blue">
           Tu solicitud está lista.
         </h2>
-        <p className="mb-4 whitespace-pre-line text-sm text-brand-blue/80">
+        <p className="mb-4 whitespace-pre-line rounded-xl bg-brand-pale p-4 text-[13px] leading-[1.6] text-brand-blue/85">
           {whatsappMessage}
         </p>
         <Button asChild className="cursor-pointer bg-brand-gold text-brand-blue hover:bg-brand-gold/90">
@@ -108,7 +108,7 @@ ${record.guia ? `Número de guía: ${record.guia}\n` : ""}Detalle: ${record.mens
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-white/60 bg-white/60 p-7 shadow-[0_20px_60px_rgba(1,22,137,0.08)] backdrop-blur-xl sm:p-9"
+      className="rounded-3xl border border-white bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:p-10"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="text-sm font-semibold text-brand-blue sm:col-span-2">

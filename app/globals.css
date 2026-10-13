@@ -513,3 +513,72 @@ select,
     animation: office-card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
+
+/*
+ * Encuesta de satisfacción: transición entre preguntas, "pop" de estrellas y
+ * confeti de agradecimiento. Solo con movimiento permitido.
+ */
+@keyframes survey-step-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes survey-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.35) rotate(-8deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes survey-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-14px) rotate(-4deg);
+  }
+  65% {
+    transform: translateY(0) rotate(3deg);
+  }
+}
+
+@keyframes survey-confetti {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.4);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--x), var(--y), 0) rotate(var(--r)) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .survey-step-in {
+    animation: survey-step-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .survey-pop {
+    animation: survey-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .survey-hop {
+    animation: survey-hop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .survey-confetti {
+    animation: survey-confetti 2.4s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s) forwards;
+  }
+}

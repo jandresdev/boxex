@@ -44,13 +44,13 @@ export function DestinationCard({
         </div>
 
         {flagUrl && (
-          <div className="hidden shrink-0 overflow-hidden rounded-xl border border-white/70 shadow-[0_8px_20px_rgba(1,22,137,0.18)] sm:block">
+          <div className="shrink-0 overflow-hidden rounded-xl border border-white/70 shadow-[0_8px_20px_rgba(1,22,137,0.18)]">
             <Image
               src={flagUrl}
               alt={`Bandera de ${country}`}
               width={160}
               height={107}
-              className="h-16 w-24 object-cover lg:h-20 lg:w-28"
+              className="h-12 w-[72px] object-cover sm:h-16 sm:w-24 lg:h-20 lg:w-28"
             />
           </div>
         )}

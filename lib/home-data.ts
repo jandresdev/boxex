@@ -174,7 +174,9 @@ export const footerLinks = {
   boxex: [
     { href: "/nosotros", label: "Sobre nosotros" },
     { href: "/legal", label: "Aspectos legales" },
+    { href: "/condiciones", label: "Condiciones y restricciones" },
     { href: "/pqr", label: "PQRs" },
+    { href: "/encuesta", label: "Encuesta de satisfacción" },
     {
       href: "https://controlboxexpress.com/app/login",
       label: "Acceso agentes ↗",
