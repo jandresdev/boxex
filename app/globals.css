@@ -455,3 +455,24 @@ select,
     display: none;
   }
 }
+
+/*
+ * Hero campaign slides: copy blocks reveal in sequence each time the slide
+ * becomes active (--i = order). Hidden state only exists with motion allowed.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .campaign-copy > * {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  .campaign-copy[data-active="true"] > * {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s ease calc(0.35s + var(--i, 0) * 0.12s),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(0.35s + var(--i, 0) * 0.12s);
+  }
+}

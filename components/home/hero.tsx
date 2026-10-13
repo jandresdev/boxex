@@ -8,9 +8,9 @@ import { HeroCarousel } from "./hero-carousel"
 export function HeroSection() {
   return (
     <>
-      <section className="relative isolate min-h-[78vh] overflow-hidden lg:min-h-[86vh]">
+      <section className="relative isolate min-h-[max(78vh,720px)] overflow-hidden lg:min-h-[86vh]">
         <HeroCarousel>
-        <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 py-16 lg:min-h-[86vh]">
+        <div className="relative mx-auto flex min-h-[max(78vh,720px)] max-w-6xl flex-col justify-center px-6 py-16 lg:min-h-[86vh]">
           <div className="flex max-w-xl flex-col">
             <span className="hero-fade mb-7 inline-flex w-fit items-center gap-2 text-[13px] text-white/85">
               <span className="size-[7px] rounded-full bg-brand-gold" />
