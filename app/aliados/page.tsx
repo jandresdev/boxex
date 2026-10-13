@@ -1,42 +1,117 @@
-import type { Metadata } from "next";
-import { PageIntro } from "@/components/layout/page-intro";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from "next"
+import { Handshake, Mail, MessageCircle, Phone, SearchCheck } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { PageIntro } from "@/components/layout/page-intro"
+import { Reveal } from "@/components/home/reveal"
+import { FinalCtaSection } from "@/components/home/final-cta"
+import { AgentForm } from "@/components/aliados/agent-form"
+import { agentSteps } from "@/lib/aliados-data"
+import { CONTACT_EMAIL, phoneChannels } from "@/lib/contact-data"
 
 export const metadata: Metadata = {
-  title: "Red de aliados y agentes Boxex",
+  title: "Hágase nuestro agente: red de aliados autorizados | Boxex",
   description:
-    "Conoce el canal oficial para solicitar vinculación a la red de agentes Boxex.",
-};
+    "Diligencia el formulario para formalizar tu solicitud de aliarte a la red de Agentes Autorizados de Boxex.",
+}
+
+const stepIcons = [Handshake, SearchCheck, Phone] as const
+const usa = phoneChannels.find((c) => c.id === "usa")
+const whatsapp = phoneChannels.find((c) => c.id === "co-whatsapp")
 
 export default function AliadosPage() {
   return (
     <>
       <PageIntro
         kicker="Aliados"
-        title="Conectemos más oportunidades."
-        description="Consulta cómo solicitar tu vinculación a la red de agentes autorizados Boxex."
+        title="Hágase nuestro agente."
+        description="Diligencie este formulario para formalizar su solicitud de aliarse a nuestra red de Agentes Autorizados de Boxex."
         image="/heroes/aliados.webp"
+        actions={[{ label: "Diligenciar solicitud", href: "#formulario" }]}
+        highlights={["Red de agentes autorizados", "Evaluación por el equipo", "Respuesta de un asesor"]}
+        flush
       />
-      <section className="mx-auto max-w-3xl px-6 pb-20">
-        <div className="rounded-xl border border-white/60 bg-white/70 p-8 backdrop-blur-lg">
-          <h2 className="mb-3 text-xl font-semibold text-brand-blue">
-            Presenta tu solicitud
+
+      {/* Proceso */}
+      <section className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
+        <Reveal className="mb-12 max-w-2xl">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+            Así funciona la vinculación
+          </span>
+          <h2 className="mb-3 mt-3 text-[32px] font-bold leading-[1.08] tracking-[-0.045em] text-brand-blue lg:text-[46px]">
+            Tres pasos para unirte a la red.
           </h2>
-          <p className="mb-6 text-sm text-brand-blue/70">
-            Completa el formulario oficial para que el equipo evalúe tu
-            solicitud y te explique las condiciones de vinculación.
+          <p className="text-[15px] leading-[1.75] text-brand-blue/70">
+            La solicitud es el primer paso: el equipo de Boxex te explica las
+            condiciones de vinculación una vez revise tu información.
           </p>
-          <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
-            <a
-              href="https://boxexpress.com/hagase-nuestro-agente/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solicitar información para ser aliado
-            </a>
-          </Button>
+        </Reveal>
+        <ol className="grid gap-5 md:grid-cols-3">
+          {agentSteps.map((step, i) => {
+            const Icon = stepIcons[i]
+            return (
+              <Reveal key={step.title} delay={i * 80}>
+                <li className="group h-full rounded-2xl border border-brand-line bg-white p-6 shadow-[0_15px_40px_rgba(1,22,137,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_55px_rgba(1,22,137,0.12)]">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="grid size-12 place-items-center rounded-xl bg-brand-soft-gold text-brand-blue">
+                      <Icon className="size-6" />
+                    </span>
+                    <span className="text-[44px] font-bold leading-none tracking-[-0.05em] text-brand-blue/10">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-brand-blue">{step.title}</h3>
+                  <p className="text-sm leading-[1.7] text-brand-blue/70">{step.text}</p>
+                </li>
+              </Reveal>
+            )
+          })}
+        </ol>
+      </section>
+
+      {/* Formulario */}
+      <section id="formulario" className="scroll-mt-28 bg-[#04102e]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:py-28">
+          <Reveal className="text-white lg:sticky lg:top-40 lg:self-start">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+              Solicitud de agente
+            </span>
+            <h2 className="mb-4 mt-3 text-[32px] font-bold leading-[1.08] tracking-[-0.045em] lg:text-[44px]">
+              Cuéntanos de tu empresa y te contactamos.
+            </h2>
+            <p className="mb-8 text-[15px] leading-[1.75] text-white/70">
+              Todos los campos son obligatorios, salvo el FAX. Necesitamos una
+              referencia comercial para evaluar tu solicitud.
+            </p>
+            <div className="grid gap-3">
+              {whatsapp?.whatsapp && (
+                <Button asChild variant="outline" className="w-fit cursor-pointer border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white">
+                  <a href={`https://wa.me/${whatsapp.whatsapp}`} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle />
+                    WhatsApp: {whatsapp.telLabel}
+                  </a>
+                </Button>
+              )}
+              {usa?.tel && (
+                <Button asChild variant="outline" className="w-fit cursor-pointer border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white">
+                  <a href={`tel:${usa.tel}`}>
+                    <Phone />
+                    Llama al {usa.telLabel}
+                  </a>
+                </Button>
+              )}
+              <Button asChild variant="outline" className="w-fit cursor-pointer border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white">
+                <a href={`mailto:${CONTACT_EMAIL}`}>
+                  <Mail />
+                  {CONTACT_EMAIL}
+                </a>
+              </Button>
+            </div>
+          </Reveal>
+          <AgentForm />
         </div>
       </section>
+
+      <FinalCtaSection />
     </>
-  );
+  )
 }
