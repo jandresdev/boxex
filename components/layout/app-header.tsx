@@ -47,7 +47,7 @@ export function AppHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-full px-3 py-2 text-sm font-medium transition-colors xl:px-4 ${
                   isActive
                     ? "bg-brand-pale text-brand-blue"
                     : "text-brand-blue/70 hover:bg-brand-pale hover:text-brand-blue"

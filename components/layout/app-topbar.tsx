@@ -5,7 +5,6 @@ const utilityLinks = [
   { href: "/aliados", label: "¿Quieres ser nuestro aliado?" },
   { href: "/rastreo", label: "Rastrea tu envío" },
   { href: "/pagos", label: "Pagos" },
-  { href: "/mi-casillero", label: "Mi casillero" },
 ]
 
 export function AppTopbar() {

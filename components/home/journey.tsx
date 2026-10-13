@@ -35,7 +35,7 @@ export function JourneySection() {
             variant="outline"
             className="mt-4 w-fit cursor-pointer border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
           >
-            <Link href="/como-funciona">Ver cómo funciona</Link>
+            <Link href="/servicios">Ver servicios</Link>
           </Button>
         </div>
         <div className="pt-4 lg:pt-[60px]">

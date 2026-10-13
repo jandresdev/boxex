@@ -19,9 +19,17 @@
     "Casillero virtual",
     "Recibe tus compras online en la dirección de Boxex en Estados Unidos y coordina su envío. Crea tu cuenta para obtener tu identificación de casillero."
   ],
+  "servicios/next-day-second-day": [
+    "Next Day / Second Day",
+    "Entrega express en Colombia: 24 horas a Bogotá y 48 horas a las ciudades principales, en un rango total de 24 a 72 horas."
+  ],
   "servicios/exportaciones": [
     "Exportaciones",
     "Recibe acompañamiento del equipo de comercio exterior para enviar mercancías desde Colombia hacia destinos internacionales."
+  ],
+  "servicios/importaciones": [
+    "Importaciones",
+    "Trae mercancía desde Estados Unidos hasta tu negocio con el acompañamiento del equipo de comercio exterior."
   ],
   "destinos": [
     "Destinos y modalidades desde Estados Unidos",
@@ -70,10 +78,6 @@
   "destinos/haiti": [
     "Envíos de Estados Unidos a Haití",
     "Consulta envíos de Estados Unidos a Haití con Boxex. Modalidades: Marítimo."
-  ],
-  "como-funciona": [
-    "Cómo enviar con Boxex",
-    "Prepara, cotiza y sigue tu envío con Boxex. Conoce el recorrido del paquete y del casillero."
   ],
   "cotizar": [
     "Solicita una cotización de envío",

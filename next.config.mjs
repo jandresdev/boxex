@@ -15,6 +15,11 @@ const nextConfig = {
         destination: "/pqr",
         permanent: true,
       },
+      {
+        source: "/como-funciona",
+        destination: "/servicios",
+        permanent: true,
+      },
     ];
   },
 };

@@ -56,6 +56,54 @@ export function ServiceDetailBody({ slug }: { slug: string }) {
           </Button>
         </>
       )
+    case "next-day-second-day":
+      return (
+        <>
+          <p className="mb-5 text-[15px] text-brand-blue/70">
+            Para envíos urgentes en Colombia. Entregamos en 24 horas a Bogotá y
+            en 48 horas a las ciudades principales, en un rango total de 24 a
+            72 horas.
+          </p>
+          <ul className="mb-8 list-disc space-y-2 pl-5 text-sm text-brand-blue/70">
+            <li>Elige Next Day o Second Day según qué tan urgente sea.</li>
+            <li>Confirma peso, medidas y valor declarado de tu envío.</li>
+            <li>
+              Consulta con el equipo la cobertura, los impuestos y los cargos
+              adicionales antes de despachar.
+            </li>
+          </ul>
+          <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
+            <Link href="/cotizar?servicio=next-day-second-day">
+              Cotizar Next / Second Day
+              <ArrowRight />
+            </Link>
+          </Button>
+        </>
+      )
+    case "importaciones":
+      return (
+        <>
+          <p className="mb-5 text-[15px] text-brand-blue/70">
+            Para emprendedores y empresas que necesitan traer mercancía desde
+            Estados Unidos. Comparte qué vas a importar y el equipo de
+            comercio exterior te orienta.
+          </p>
+          <ul className="mb-8 list-disc space-y-2 pl-5 text-sm text-brand-blue/70">
+            <li>Consulta los documentos necesarios para tu mercancía.</li>
+            <li>Confirma el valor declarado, el peso y las dimensiones.</li>
+            <li>
+              Revisa impuestos y condiciones de importación del destino con el
+              asesor.
+            </li>
+          </ul>
+          <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
+            <Link href="/cotizar?servicio=importaciones">
+              Consultar importación
+              <ArrowRight />
+            </Link>
+          </Button>
+        </>
+      )
     case "exportaciones":
       return (
         <>

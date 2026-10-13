@@ -5,6 +5,8 @@ import {
   Globe,
   Search,
   MapPin,
+  Timer,
+  PackageOpen,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
@@ -42,12 +44,28 @@ export const services: Service[] = [
     icon: ShoppingBag,
   },
   {
+    slug: "next-day-second-day",
+    name: "Next Day / Second Day",
+    tag: "Cuando el tiempo cuenta.",
+    description:
+      "Entrega express en Colombia: 24 horas a Bogotá y 48 horas a las ciudades principales, en un rango total de 24 a 72 horas. Elige Next Day o Second Day según tu urgencia; el equipo confirma la cobertura y el costo.",
+    icon: Timer,
+  },
+  {
     slug: "exportaciones",
     name: "Exportaciones",
     tag: "Tu negocio puede llegar más lejos.",
     description:
       "Recibe acompañamiento del equipo de comercio exterior para enviar mercancías desde Colombia hacia destinos internacionales.",
     icon: Globe,
+  },
+  {
+    slug: "importaciones",
+    name: "Importaciones",
+    tag: "Lo que tu negocio necesita, más cerca.",
+    description:
+      "Trae mercancía desde Estados Unidos hasta tu negocio con el acompañamiento del equipo de comercio exterior: documentos, valores declarados, impuestos y condiciones del destino confirmados antes de despachar.",
+    icon: PackageOpen,
   },
 ]
 

@@ -11,14 +11,18 @@ const serviceOptions = [
   "Envío internacional",
   "Recogida en casa",
   "Casillero virtual",
+  "Next Day / Second Day",
   "Exportación desde Colombia",
+  "Importación",
 ]
 
 const serviceSlugMap: Record<string, string> = {
   "envios-internacionales": "Envío internacional",
   "recogida-en-casa": "Recogida en casa",
   "casillero-virtual": "Casillero virtual",
+  "next-day-second-day": "Next Day / Second Day",
   exportaciones: "Exportación desde Colombia",
+  importaciones: "Importación",
 }
 
 function serviceFromParams(params: ReadonlyURLSearchParams) {

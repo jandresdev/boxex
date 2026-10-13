@@ -27,7 +27,7 @@ export default function MiCasilleroPage() {
   return (
     <>
       <PageIntro
-        kicker="Mi casillero"
+        kicker="Casillero virtual"
         title="Compra en Estados Unidos. Recibe en Colombia."
         description="Tu casillero virtual Boxex conecta tus compras con Colombia de forma fácil, segura y acompañada de principio a fin."
         image="/heroes/mi-casillero.webp"

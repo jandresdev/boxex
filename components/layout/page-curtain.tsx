@@ -20,7 +20,6 @@ const SCENES: Record<string, CurtainScene> = {
   "": { label: "Desde USA. Hasta los tuyos.", character: "familia-boxex" },
   servicios: { label: "Servicios", character: "boxy" },
   destinos: { label: "Destinos", character: "boxella" },
-  "como-funciona": { label: "Cómo funciona", character: "boxyta" },
   cotizar: { label: "Cotizar", character: "boxy" },
   rastreo: { label: "Rastreo", character: "boxella" },
   oficinas: { label: "Oficinas", character: "boxyta" },
@@ -33,7 +32,7 @@ const SCENES: Record<string, CurtainScene> = {
   guias: { label: "Guías", character: "boxy" },
   condiciones: { label: "Condiciones", character: "boxyta" },
   legal: { label: "Aspectos legales", character: "boxy" },
-  "mi-casillero": { label: "Mi casillero", character: "boxyta" },
+  "mi-casillero": { label: "Casillero virtual", character: "boxyta" },
 }
 
 const FALLBACK: CurtainScene = { label: "Unlimited Courier", character: "boxy" }
