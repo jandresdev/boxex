@@ -52,7 +52,10 @@ export type CampaignSlide = {
   rates?: {
     lead: string
     rows: { origin: string; price: string }[]
+    /** Destino de la tarifa; se muestra con la bandera de Colombia. */
     footnote: string
+    /** Sello corto junto al destino. */
+    badge?: string
     legal: string
   }
   actions: CampaignAction[]
@@ -91,7 +94,8 @@ const halloweenRates = (
       { origin: "Miami", price: prices.miami },
       { origin: "Texas", price: prices.texas },
     ],
-    footnote: "Por paquetería aérea, hacia Colombia · Más seguro",
+    footnote: "Paquetería aérea hacia Colombia",
+    badge: "Más seguro",
     legal: "*Aplican cargos y condiciones.",
   },
   actions: HALLOWEEN_ACTIONS,

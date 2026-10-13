@@ -280,8 +280,14 @@ function CampaignSlideView({
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-[12px] text-white/80">
-              {slide.rates.footnote}
+            <p className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 rounded-xl bg-brand-gold px-3 py-2 text-[13px] font-bold text-brand-blue shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:text-[15px]">
+              <ColombiaFlag />
+              <span>{slide.rates.footnote}</span>
+              {slide.rates.badge && (
+                <span className="rounded-full bg-brand-blue px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white sm:text-[11px]">
+                  {slide.rates.badge}
+                </span>
+              )}
             </p>
             <p className="mt-0.5 text-[11px] text-white/55">
               {slide.rates.legal}
@@ -296,6 +302,21 @@ function CampaignSlideView({
         </div>
       </div>
     </>
+  )
+}
+
+/** Bandera de Colombia (amarillo 50 %, azul 25 %, rojo 25 %) en CSS puro: los emoji de bandera no se ven en Windows. */
+function ColombiaFlag() {
+  return (
+    <span
+      role="img"
+      aria-label="Bandera de Colombia"
+      className="inline-flex h-[18px] w-[27px] shrink-0 flex-col overflow-hidden rounded-[3px] ring-1 ring-brand-blue/30 sm:h-5 sm:w-[30px]"
+    >
+      <span className="h-1/2 bg-[#fcd116]" />
+      <span className="h-1/4 bg-[#003893]" />
+      <span className="h-1/4 bg-[#ce1126]" />
+    </span>
   )
 }
 
