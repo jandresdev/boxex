@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
-import { services } from "@/lib/home-data"
+import { serviceHref, services } from "@/lib/home-data"
 
 const N = services.length
 
@@ -143,7 +143,7 @@ export function ServiceCarousel() {
               aria-hidden={!isCenter}
             >
               <Link
-                href={`/servicios/${service.slug}`}
+                href={serviceHref(service)}
                 draggable={false}
                 onClick={(e) => {
                   if (dragRef.current.moved) {

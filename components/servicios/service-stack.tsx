@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { services } from "@/lib/home-data"
+import { serviceHref, services } from "@/lib/home-data"
 
 type Theme = {
   card: string
@@ -156,7 +156,7 @@ export function ServiceStack() {
                 </p>
                 <div className="mt-2 flex flex-wrap gap-3">
                   <Button asChild className={`cursor-pointer ${theme.primary}`}>
-                    <Link href={`/servicios/${service.slug}`}>
+                    <Link href={serviceHref(service)}>
                       Consultar
                       <ArrowRight />
                     </Link>

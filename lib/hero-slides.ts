@@ -60,16 +60,6 @@ export type CampaignSlide = {
 
 export type HeroSlide = BrandSlide | PromoSlide | CampaignSlide
 
-const otono = (city: string, slug: string, prices: [string, string, string]): PromoSlide => ({
-  id: `otono-${slug}`,
-  kind: "promo",
-  src: `/promos/otono-${slug}.webp`,
-  alt: `Promoción de otoño Boxex: envíos por paquetería aérea desde ${city} hacia Colombia, más seguro. 30 libras USD ${prices[0]}, 40 libras USD ${prices[1]}, 50 libras USD ${prices[2]}. Aplican cargos y condiciones.`,
-  href: "/cotizar?destino=colombia",
-  label: `Cotizar promoción desde ${city}`,
-  duration: 6000,
-})
-
 // Tarifas "La magia de Halloween" publicadas en boxexpress.com (paquetería
 // aérea hacia Colombia). Confirmar vigencia con Boxex antes de cada campaña.
 const HALLOWEEN_UNTIL = "2026-11-01"
@@ -107,17 +97,23 @@ const halloweenRates = (
   actions: HALLOWEEN_ACTIONS,
 })
 
+/**
+ * Diapositiva de marca (video + titular fijo del hero). No forma parte de la
+ * rotación de campaña: solo se muestra cuando ninguna campaña está vigente,
+ * para que el home nunca quede sin hero al terminar Halloween.
+ */
+export const fallbackSlide: BrandSlide = {
+  id: "video-personajes-mundo",
+  kind: "brand",
+  type: "video",
+  src: "/assets/hero-video.mp4",
+  poster: "/assets/boxex-characters-hero.png",
+  duration: 9000,
+}
+
 // Para agregar una diapositiva: guarda la imagen en /public/promos y añade
 // una entrada aquí. El orden de la lista es el orden del carrusel.
 export const heroSlides: HeroSlide[] = [
-  {
-    id: "video-personajes-mundo",
-    kind: "brand",
-    type: "video",
-    src: "/assets/hero-video.mp4",
-    poster: "/assets/boxex-characters-hero.png",
-    duration: 9000,
-  },
   {
     id: "halloween-casillero",
     kind: "campaign",
@@ -157,8 +153,4 @@ export const heroSlides: HeroSlide[] = [
     "/promos/halloween-50.webp",
     { nyNjBos: "USD 92.00", miami: "USD 87.00", texas: "USD 104.50" },
   ),
-  otono("New York", "new-york", ["48", "64", "80"]),
-  otono("New Jersey", "new-jersey", ["48", "64", "80"]),
-  otono("Boston", "boston", ["48", "64", "80"]),
-  otono("Miami", "miami", ["45", "60", "75"]),
 ]

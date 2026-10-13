@@ -35,27 +35,6 @@ export function ServiceDetailBody({ slug }: { slug: string }) {
           </Button>
         </>
       )
-    case "recogida-en-casa":
-      return (
-        <>
-          <p className="mb-5 text-[15px] text-brand-blue/70">
-            Evita desplazamientos innecesarios. Antes de coordinar la
-            recogida, confirma tu ubicación, cantidad de cajas, peso, medidas
-            y destino.
-          </p>
-          <ul className="mb-8 list-disc space-y-2 pl-5 text-sm text-brand-blue/70">
-            <li>Ten el paquete listo para su revisión.</li>
-            <li>Consulta restricciones de contenido.</li>
-            <li>Confirma disponibilidad, costo y fecha con el equipo.</li>
-          </ul>
-          <Button asChild className="cursor-pointer bg-brand-blue text-white hover:bg-brand-blue/90">
-            <Link href="/cotizar?servicio=recogida-en-casa">
-              Solicitar recogida
-              <ArrowRight />
-            </Link>
-          </Button>
-        </>
-      )
     case "next-day-second-day":
       return (
         <>

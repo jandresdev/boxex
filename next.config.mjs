@@ -16,6 +16,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/servicios/recogida-en-casa",
+        destination: "/recogida-en-casa",
+        permanent: true,
+      },
+      {
         source: "/como-funciona",
         destination: "/servicios",
         permanent: true,

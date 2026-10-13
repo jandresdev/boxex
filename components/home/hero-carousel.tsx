@@ -14,6 +14,7 @@ import {
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
+  fallbackSlide,
   heroSlides,
   type BrandSlide,
   type CampaignAction,
@@ -309,9 +310,11 @@ function CampaignSlideView({
  */
 export function HeroCarousel({ children }: { children: ReactNode }) {
   const today = useSyncExternalStore(subscribeNoop, getToday, getServerToday)
-  const slides = heroSlides.filter(
+  const active = heroSlides.filter(
     (s) => !("until" in s && s.until) || today === "" || today <= s.until
   )
+  // Campaigns only; the brand video steps in when none is current.
+  const slides = active.length > 0 ? active : [fallbackSlide]
 
   const [index, setIndex] = useState(0)
   const [reach, setReach] = useState(1)

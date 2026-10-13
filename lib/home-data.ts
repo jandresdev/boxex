@@ -16,7 +16,12 @@ export interface Service {
   tag: string
   description: string
   icon: LucideIcon
+  /** Página propia del servicio; si falta, se usa /servicios/{slug}. */
+  href?: string
 }
+
+export const serviceHref = (s: Pick<Service, "slug" | "href">) =>
+  s.href ?? `/servicios/${s.slug}`
 
 export const services: Service[] = [
   {
@@ -29,6 +34,7 @@ export const services: Service[] = [
   },
   {
     slug: "recogida-en-casa",
+    href: "/recogida-en-casa",
     name: "Recogida en casa",
     tag: "El viaje empieza en tu puerta.",
     description:

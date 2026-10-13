@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { services } from "@/lib/home-data";
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services.filter((s) => !s.href).map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({
