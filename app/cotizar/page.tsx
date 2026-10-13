@@ -18,7 +18,7 @@ export default function CotizarPage() {
         description="Prepara los datos y continúa con un asesor de Boxex para recibir una cotización."
         image="/heroes/cotizar.webp"
         actions={[
-          { label: "Hablar con un asesor", href: "/contacto" },
+          { label: "Hablar con un asesor", href: "/ayuda#contacto" },
           { label: "Ver destinos", href: "/destinos" },
         ]}
       />

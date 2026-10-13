@@ -63,7 +63,7 @@ export default function RastreoPage() {
           <Button asChild variant="outline" className="mb-4 cursor-pointer">
             <a href="https://clientes.boxexpress.com/app/">Entrar a mi casillero</a>
           </Button>
-          <Link href="/contacto" className="block text-sm font-semibold text-brand-blue underline">
+          <Link href="/ayuda#contacto" className="block text-sm font-semibold text-brand-blue underline">
             Contactar al equipo
           </Link>
         </aside>

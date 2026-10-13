@@ -13,7 +13,7 @@ export const navItems: NavItem[] = [
   { href: "/mi-casillero", label: "Casillero virtual", icon: ShoppingBag },
   { href: "/destinos", label: "Destinos", icon: MapPin },
   { href: "/oficinas", label: "Oficinas", icon: Building2 },
-  { href: "/ayuda", label: "Ayuda", icon: HelpCircle },
+  { href: "/ayuda", label: "Ayuda y contacto", icon: HelpCircle },
 ]
 
 export const quoteCta = {

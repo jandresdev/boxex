@@ -41,7 +41,7 @@ export default function PagosPage() {
             Conserva tu número de orden y comprobante para consultar al
             equipo.
           </p>
-          <Link href="/contacto" className="text-sm font-semibold text-brand-blue underline">
+          <Link href="/ayuda#contacto" className="text-sm font-semibold text-brand-blue underline">
             Contactar a Boxex
           </Link>
         </aside>

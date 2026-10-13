@@ -340,7 +340,7 @@ export function OfficesExplorer() {
           {filtered.length === 0 && (
             <li className="py-8 text-sm text-brand-blue/60">
               No encontramos esa ciudad.{" "}
-              <a href="/contacto" className="underline">
+              <a href="/ayuda#contacto" className="underline">
                 Consulta con el equipo
               </a>
               .

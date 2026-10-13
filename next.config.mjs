@@ -21,6 +21,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/contacto",
+        destination: "/ayuda#contacto",
+        permanent: true,
+      },
+      {
         source: "/como-funciona",
         destination: "/servicios",
         permanent: true,

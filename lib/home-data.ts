@@ -165,7 +165,7 @@ export const footerLinks = {
   ],
   cerca: [
     { href: "/oficinas", label: "Encuentra una oficina" },
-    { href: "/contacto", label: "Contacto" },
+    { href: "/ayuda#contacto", label: "Contacto" },
     { href: "/ayuda", label: "Preguntas frecuentes" },
     { href: "/guias", label: "Guías para enviar" },
     { href: "/aliados", label: "Sé nuestro aliado" },
